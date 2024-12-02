@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>재고 입력 결과</title>
+</head>
+<body>
+	<h2>[ 재고 입력 결과 ]</h2>
+	<ul>
+		<li>입력일: <span th:text="${stock.creationDate}">입력일</span></li>
+		<li>물품명: <span th:text="${stock.productName}">물품명</span></li>
+		<li>종류: <span th:text="${stock.itemType}">종류</span></li>
+		<li>단가: <span th:text="${stock.unitPrice}">단가</span></li>
+		<li>개수: <span th:text="${stock.count}">개수</span></li>
+		<li>기타: <span th:text="${stock.details}">기타</span></li>
+	</ul>
+</body>
+</html>

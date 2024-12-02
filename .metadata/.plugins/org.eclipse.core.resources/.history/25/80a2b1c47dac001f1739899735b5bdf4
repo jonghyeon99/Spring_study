@@ -1,0 +1,10 @@
+package net.scit.test2.dto;
+
+public class StockDTO {
+	private String creationDate;
+	private String productName;
+	private String itemType;
+	private Integer unitPrice;
+	private String count;
+	private String details;
+}

@@ -1,0 +1,5 @@
+package net.scit.spring4.controller;
+
+public class ConditionController {
+
+}

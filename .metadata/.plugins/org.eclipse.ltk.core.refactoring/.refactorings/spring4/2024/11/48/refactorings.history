@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;spring4/src/main/resources/static/images/118770_home_icon.png&apos; to &apos;home.png&apos;" description="Rename resource &apos;118770_home_icon.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/static/images/118770_home_icon.png" name="home.png" stamp="1732697348524" updateReferences="true"/>
+</session>

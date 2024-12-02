@@ -1,0 +1,12 @@
+package net.scit.spring5.dto;
+
+import java.time.LocalDateTime;
+
+public class PhoneDTO {
+
+	private Integer id;
+	private String fname;
+	private String phone;
+	private LocalDateTime birthday;
+	private Boolean ftype;
+}

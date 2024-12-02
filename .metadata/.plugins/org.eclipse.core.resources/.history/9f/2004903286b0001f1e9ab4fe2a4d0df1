@@ -1,0 +1,5 @@
+package net.scit.spring5.entity;
+
+public class PhoneEntity {
+
+}

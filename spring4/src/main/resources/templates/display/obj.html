@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <h2>[ 객체 출력 ]</h2>
+    <div>
+        <a th:href="@{/}">
+            <img th:src="@{/images/home.png}" alt="home">홈으로
+        </a>
+    </div>
+
+    <h3>1. DTO 출력</h3>
+    <ul>
+        <li th:text="${friend.name}"></li>
+        <li th:text="${friend.age}"></li>
+        <li th:text="${friend.phone}"></li>
+        <li th:text="${friend.birthday}"></li>
+        <li th:text="${friend.active} ? '외향적' : '내성적'"></li>
+    </ul>
+
+    <h3>2. DTO 목록 출력</h3>
+    <table border="1">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>전화번호</th>
+            <th>생년월일</th>
+            <th>성향</th>
+        </tr>
+        <tr th:each="friend, status : ${fList}" class="rollover">
+            <td th:text="${status.count}"></td>
+            <td th:text="${friend.name}"></td>
+            <td th:if="${friend.age >= 30}" th:text="${friend.age}" style="color: red;"></td>
+            <td th:unless="${friend.age >= 30}" th:text="${friend.age}" ></td>
+            <td th:text="${friend.phone}"></td>
+            <td th:text="${friend.birthday}"></td>
+            <td th:text="${friend.active} ? '외향적' : '내성적'"></td>
+        </tr>
+    </table>
+</body>
+</html>

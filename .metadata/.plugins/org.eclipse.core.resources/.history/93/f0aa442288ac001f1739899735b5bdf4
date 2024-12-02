@@ -1,0 +1,25 @@
+package net.scit.test2.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import net.scit.test2.dto.StockDTO;
+
+@Controller
+@RequestMapping("/stock")
+public class StockController {
+
+	@GetMapping("/stockInsert")
+	public String stockInsert() {
+		return "stock/stockInsert";	// forwarding
+	}
+	
+	@PostMapping("/stockResult")
+	public String stockResult(@ModelAttribute StockDTO stockDTO) {
+		System.out.println(stockDTO);
+		return "stock/stockResult";
+	}
+}

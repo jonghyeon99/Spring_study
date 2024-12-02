@@ -1,0 +1,5 @@
+package net.scit.spring2.controller;
+
+public class BMIController {
+
+}

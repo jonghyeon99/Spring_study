@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.rollover:hover {
+    background-color: lightgray;
+    cursor : pointer;
+    font-weight: bold;
+}

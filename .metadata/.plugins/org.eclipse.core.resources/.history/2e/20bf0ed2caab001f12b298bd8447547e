@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>전화번호 등록</title>
+</head>
+<body>
+	<h2>[ 전화번호부 등록 ]</h2>
+	<form action="/friend/phoneProc" method="POST">
+	// 이름(name), 전화번호(phone), 주소(addr), 성격(type)-내향적, 외향적을 선택하는 라디오
+		<label for="name">
+			이름: <input type="text" name="name" id="name" placeholder="이름 입력">
+		</label> <br>
+		<label for="phone">
+			전화번호: <input type="text" name="phone" id="phone" placeholder="전화번호 입력">
+		</label> <br>
+		<label for="addr">
+			주소: <input type="text" name="addr" id="addr" placeholder="주소 입력">
+		</label> <br>
+		<label>
+			성격: <input type="radio" name="type" value=1 checked> 내향적
+				 <input type="radio" name="type" value="0"> 외향적
+		</label> <br>
+		<input type="submit" value="가입">
+	</form>
+</body>
+</html>

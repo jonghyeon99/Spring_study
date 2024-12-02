@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>[ 재고 입력 ]</h2>
+	<form action="/stock/stockResult" method="POST">
+		<label for="creationDate">
+			날짜: <input type="date" name="creationDate" id="creationDate" placeholder="날짜 선력">
+		</label> <br>
+		<label for="productName">
+			물품명: <input type="text" name="productName" id="productName" placeholder="물품명 입력">
+		</label> <br>
+		<label>
+			항목: <input type="radio" name="itemType" value="1"> 입고
+				 <input type="radio" name="itemType" value="0"> 출고
+		</label> <br>
+		<label for="unitPrice">
+			단가: <input type="number" name="unitPrice">
+		</label> <br>
+		<label for="count">
+			개수: <input type="number" name="count">
+		</label> <br>
+		<label for="details">
+			세부내용: <br>
+			<textarea name="details" rows="5" cols="30"></textarea>
+		</label> <br>
+		<input type="submit" value="가입">
+	</form>
+</body>
+</html>

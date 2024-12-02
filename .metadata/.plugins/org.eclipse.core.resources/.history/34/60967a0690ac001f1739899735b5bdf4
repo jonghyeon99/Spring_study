@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>재고 입력 결과</title>
+</head>
+<body>
+	<h2>[ 재고 입력 완료 ]</h2>
+	<p th:text="${stock.productName}">물품 이름</p>
+</body>
+</html>

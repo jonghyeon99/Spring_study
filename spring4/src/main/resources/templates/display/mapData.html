@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map 데이터 다루기</title>
+</head>
+<body>
+    <h2>[ Map 데이터 다루기 ]</h2>
+    <div>
+        <a th:href="@{/}">
+            <img th:src="@{/images/home.png}" alt="home">홈으로
+        </a>
+    </div>
+
+    <h3>1. Map 데이터 출력</h3>
+    <ul>
+        <li>Map ContainsKey : <span th:text="${friend.containsKey('lee')}"></span></li>
+        <li>Map IsEmpty : <span th:text="${friend.isEmpty()}"></span></li>
+        <li>Map Size : <span th:text="${friend.size()}"></span></li>
+        <li>Map Size : <span th:text="${#maps.size(friend)}"></span></li>
+        <br>
+
+        <li>-------------------------이순신 데이터 출력---------------------------</li>
+        <li><span th:text="${friend.get('lee').getName()}"></span> / <span th:text="${friend.get('lee').getAge()}"></span>세</li>
+        <li><span th:text="${friend['lee'].name}"></span> / <span th:text="${friend['lee'].age}"></span>세</li>
+        <li><span th:text="|${friend['lee'].name} / ${friend['lee'].age}세|"></span></li>
+    </ul>
+
+    <h3>문제</h3>
+    <ul>
+        <li><span th:text="${age} < 19 ? ${age} + '세는 미성년자입니다' : ${age} + '세는 성인입니다.'"></span></li>
+    </ul>
+
+    <h3>2. 쿼리스트링(쿼리파라미터) 전송</h3>
+    <ul>
+        <li><a href="/display/sendData?name=홍길동&age=31">데이터 전송</a></li>
+        <li><a th:href="@{/display/sendData(name=이몽룡, age=19)}">데이터 전송</a></li>
+    </ul>
+</body> 
+</html>

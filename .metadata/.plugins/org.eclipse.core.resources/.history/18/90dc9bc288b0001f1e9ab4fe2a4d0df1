@@ -1,0 +1,35 @@
+package net.scit.spring5.entity;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+
+@Entity
+@Table(name="phonebook")	// 클래스명과 테이블명이 동일하면 생략가능
+public class PhoneEntity {
+	@Id						// PK
+	@Column(name="id")		// 멤버명과 테이블의 컬럼명이 동일하면 생략가능
+	private Integer id;
+	@Column(name="fname", nullable = false)
+	private String fname;
+	@Column(name="phone")
+	private String phone;
+	@Column(name="birthday")
+	private LocalDate birthday;
+	@Column(name="ftype")
+	private Boolean ftype;
+}

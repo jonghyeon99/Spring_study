@@ -1,0 +1,28 @@
+package net.scit.spring5.entity;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+
+@Entity
+@Table(name ="phonebook")	// 테이블명과 동일
+public class PhoneEntity {
+	
+	private Integer id;
+	private String fname;
+	private String phone;
+	private LocalDate birthday;
+	private Boolean ftype;
+}

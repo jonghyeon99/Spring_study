@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본 숫자와 날짜 다루기</title>
+</head>
+<body>
+    <h2>[ 기본 숫자와 날짜 다루기 ]</h2>
+    <div>
+        <a th:href="@{/}">
+            <img th:src="@{/images/home.png}" alt="home">홈으로
+        </a>
+    </div>
+    
+    <h3>1. 정수 포맷 출력</h3>
+    <ul>
+        <li>정수 출력 : <span th:text="${intNum}"></span></li>
+        <li>천 단위 콤마 : <span th:text="${#numbers.formatInteger(intNum, 3, 'COMMA')}"></span></li>
+        <li>천 단위 포인트(X) : <span th:text="${#numbers.formatInteger(intNum, 3, 'POINT')}"></span></li>
+        <li>천 단위 NONE(X) : <span th:text="${#numbers.formatInteger(intNum, 3, 'NONE')}"></span></li>
+        <li>자릿수 : <span th:text="${#numbers.formatInteger(intNum, 12)}"></span></li>
+    </ul>
+    <h3>2. 실수 포맷 출력</h3>
+    <ul>
+        <li>실수 출력 : <span th:text="${doubleNum}"></span></li>
+        <li>천 단위 콤마, 소수 2자리 : <span th:text="${#numbers.formatDecimal(doubleNum, 3, 'COMMA', 2, 'POINT')}"></span></li>
+    </ul>
+    <h3>3. 백분율, 통화기호 출력</h3>
+    <ul>
+        <li>백분율 출력 : <span th:text="${percent}"></span></li>   
+        <li>백분율 (소수 2자리) : <span th:text="${#numbers.formatPercent(percent, 0, 2)}"></span></li>
+        <li>통화 출력 : <span th:text="${money}"></span></li>   
+        <li>통화 (소수 2자리) : <span th:text="${#numbers.formatCurrency(money)}"></span></li>
+    </ul>
+    <h3>4. 날짜(시간) 다루기</h3>
+    <ul>
+        <li>날짜 출력(기본) : <span th:text="${today}"></span></li>   
+        <li>날짜/시간 출력(기본) : <span th:text="${now}"></span></li>
+        <li>날짜 출력(포맷) : <span th:text="${#temporals.format(today, 'yyyy년 MM월 dd일')}"></span></li>   
+        <li>날짜/시간 출력(포맷) : <span th:text="${#temporals.format(now, 'yyyy년 MM월 dd일 HH 시 mm분 ss초')}"></span></li>
+    </ul>
+</body>
+</html>

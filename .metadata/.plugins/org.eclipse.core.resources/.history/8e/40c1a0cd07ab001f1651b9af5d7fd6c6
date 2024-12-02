@@ -1,0 +1,17 @@
+package net.scit.spring2.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class BMIController {
+
+	@GetMapping("/bmi")
+	public String bmi(
+			@RequestParam(name="height") double height
+			, @RequestParam(name="weight") double weight
+			) {
+		return "bmi_result";
+	}
+}

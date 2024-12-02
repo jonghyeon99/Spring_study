@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;net.scit.controller&apos; to &apos;net.scit.test1.controller&apos;&#x0D;&#x0A;- Original project: &apos;test1&apos;&#x0D;&#x0A;- Original element: &apos;test1/src/main/java/net.scit.controller&apos;&#x0D;&#x0A;- Renamed element: &apos;test1/src/main/java/net.scit.test1.controller&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;net.scit.controller&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;net.scit.controller" name="net.scit.test1.controller" qualified="false" references="true" stamp="1732597948699" textual="false" version="1.0"/>
+</session>

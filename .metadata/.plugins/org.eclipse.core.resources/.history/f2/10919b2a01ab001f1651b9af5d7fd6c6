@@ -1,0 +1,22 @@
+package net.scit.spring1.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class SecondController {
+	
+	@GetMapping("/param")
+	public String param(
+			@RequestParam(name="username") String username
+			, int age
+			) {
+		return "param";
+	}
+	
+	@GetMapping("/info")
+	public String info() {
+		return "info";
+	}
+}

@@ -1,0 +1,19 @@
+package net.scit.spring2.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MainController {
+
+	@GetMapping("/index")
+	public String index(
+			@RequestMapping(name="where") String where
+			, @RequestMapping(name="action") String action
+			) {
+		System.out.println("where: " + where);
+		System.out.println("action: " + action);
+		return "index";
+	}
+}
