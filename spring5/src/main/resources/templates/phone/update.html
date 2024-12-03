@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전화번호 수정</title>
+</head>
+<body>
+    <div>
+        <a th:href="@{/}">
+            <img th:src="@{/images/home.png}" alt="Home">
+        </a>
+    </div>
+
+    <div>
+        <form th:action="@{/phone/update}" method="POST">
+            <input type="hidden" name="id" th:value="${phone.id}">
+            <label> 이름:
+                <input type="text" name="fname" th:value="${phone.fname}">
+            </label><br>
+
+            <label> 전화번호:
+                <input type="text" name="phone" th:value="${phone.phone}">
+            </label><br>
+
+            <label> 생년월일:
+                <input type="date" name="birthday" th:value="${phone.birthday}">
+            </label><br>
+
+            <label> 스타일:
+                <input type="radio" name="ftype" value="1" th:checked="${phone.ftype}==true"> 외향적
+                <input type="radio" name="ftype" value="0" th:checked="${phone.ftype}!=true"> 내성적
+            </label><br><br>
+
+            <input type="submit" value="수정">
+
+        </form>
+    </div>
+</body>
+</html>

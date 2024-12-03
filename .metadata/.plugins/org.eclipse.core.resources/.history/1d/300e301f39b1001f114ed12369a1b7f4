@@ -1,0 +1,7 @@
+package net.scit.spring5.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PhoneRepository extends JpaRepository<T, ID> {
+
+}

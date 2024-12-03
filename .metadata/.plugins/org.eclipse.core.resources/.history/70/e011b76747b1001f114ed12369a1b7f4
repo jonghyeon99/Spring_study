@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a th:href="@{/}">
+            <img th:src="@{/images/home.png}" alt="Home">
+        </a>
+        <h2>전화번호 조회</h2>
+    </div>
+
+    <div>
+        <p>아이디: <span th:text="${phone.id}"></span></p>
+        <p>이름: <span th:text="${phone.fname}"></span></p>
+        <p>전화번호: <span th:text="${phone.phone}"></span></p>
+        <p>생년월일: <span th:text="${phone.birthday}"></span></p>
+        <p>스타일: <span th:text="${phone.ftype} ? '외향적' : '내성적'"></span></p>
+    </div>
+</body>
+</html>

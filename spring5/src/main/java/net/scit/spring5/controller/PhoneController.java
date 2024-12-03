@@ -1,10 +1,13 @@
 package net.scit.spring5.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +34,38 @@ public class PhoneController {
 		
 		phoneService.insert(phoneDTO);
 		
-		return "phone/registView";
+		return "redirect:/";
+	}
+	
+	@GetMapping("/selectOne")
+	public String selectOne(@RequestParam(name="id") Integer id, Model model) {
+		PhoneDTO phoneDTO = phoneService.selectOne(id);
+		
+		model.addAttribute("phone", phoneDTO);
+		
+		return "phone/read";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam(name="id") Integer id) {
+		phoneService.delete(id);
+		return "redirect:/";
+	}
+	
+	@GetMapping("/update")
+	public String update(@RequestParam(name="id") Integer id, Model model) {
+		PhoneDTO phoneDTO = phoneService.selectOne(id);
+		
+		model.addAttribute("phone", phoneDTO);
+		
+		return "phone/update";
+	}
+	
+	@PostMapping("/update")
+	public String update(@ModelAttribute PhoneDTO phoneDTO, RedirectAttributes rttr) {
+		phoneService.update(phoneDTO);
+		
+		rttr.addAttribute("id", phoneDTO.getId());
+		return "redirect:/phone/selectOne";
 	}
 }
