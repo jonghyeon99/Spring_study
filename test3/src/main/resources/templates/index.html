@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness 회원관리</title>
+    <link rel="stylesheet" th:href=@{/css/main.css}>
+</head>
+<body>
+	<div class="top">
+		<img th:src="@{/images/logo.png}" alt="logo">
+    	<h2>[ Fitness 회원관리 ]</h2>
+    </div>
+    <ul>
+        <li><a th:href="@{/fitness/regist}">회원 등록</a></li>
+        <li><a th:href="@{/fitness/selectAll}">전체 회원 조회</a></li>
+    </ul>
+</body>
+</html>

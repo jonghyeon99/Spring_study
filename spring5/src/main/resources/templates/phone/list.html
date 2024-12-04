@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>전체 출력</title>
+</head>
+<body>
+    <div>
+        <a th:href="@{/}">
+            <img th:src="@{/images/home.png}" alt="Home">
+        </a>
+    </div>
+
+    <div>
+        <table border="1">
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>전화번호</th>
+                <th>생년월일</th>
+                <th>스타일</th>
+                <th></th>
+            </tr>
+            <tr th:each="phone, status : ${list}">
+                <td th:text="${status.count}"></td>
+                <td th:text="${phone.fname}"></td>
+                <td th:text="${phone.phone}"></td>
+                <td th:text="${phone.birthday}"></td>
+                <td th:text="${phone.ftype} ? '외향적' : '내성적'"></td>
+                <td>
+                	<a th:href="@{/phone/delete(id=${phone.id})}">삭제</a>
+					<a th:href="@{/phone/update(id=${phone.id})}">수정</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

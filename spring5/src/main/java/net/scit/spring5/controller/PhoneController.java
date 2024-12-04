@@ -1,5 +1,7 @@
 package net.scit.spring5.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,5 +69,14 @@ public class PhoneController {
 		
 		rttr.addAttribute("id", phoneDTO.getId());
 		return "redirect:/phone/selectOne";
+	}
+	
+	@GetMapping("/selectAll")
+	public String selectAll(Model model) {
+		List<PhoneDTO> list = phoneService.selectAll();
+		
+		model.addAttribute("list", list);
+		
+		return "phone/list";
 	}
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>전화번호 등록</title>
+    <script defer th:src="@{/js/main.js}"></script>
 </head>
 <body>
     <div>
@@ -13,13 +14,13 @@
     </div>
 
     <div>
-        <form th:action="@{/phone/regist}" method="POST">
+        <form th:action="@{/phone/regist}" id="sendForm" method="POST">
             <label> 이름:
-                <input type="text" name="fname" placeholder="이름 입력">
+                <input type="text" name="fname" id="fname" placeholder="이름 입력">
             </label><br>
 
             <label> 전화번호:
-                <input type="text" name="phone" placeholder="전화번호 숫자 11자리 입력">
+                <input type="text" name="phone" id="phone" placeholder="전화번호 숫자 11자리 입력">
             </label><br>
 
             <label> 생년월일:
@@ -27,11 +28,11 @@
             </label><br>
 
             <label> 스타일:
-                <input type="radio" name="ftype" value="1"> 외향적
+                <input type="radio" name="ftype" value="1" checked> 외향적
                 <input type="radio" name="ftype" value="0"> 내성적
             </label><br><br>
 
-            <input type="submit" value="등록">
+            <input type="button" id="sendData" value="등록">
 
         </form>
     </div>
