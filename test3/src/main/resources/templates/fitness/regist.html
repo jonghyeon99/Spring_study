@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href=@{/css/main.css}>
+</head>
+<body>
+    <div class="top">
+        <a th:href="@{/}">
+		    <img th:src="@{/images/logo.png}" alt="logo">
+        </a>    
+    	<h2>[ Fitness 회원관리 ]</h2>
+    </div>
+
+    <div>
+        <form th:action="@{/fitness/regist}" method="POST">
+            <!-- <input type="hidden" name="id" th:value="${phone.id}"> -->
+            <label> 
+            	<span>이름:</span>
+                <input type="text" name="fname" placeholder="이름 입력">
+            </label><br>
+            <label> 
+                <span>성별:</span>
+                <input type="radio" name="gender" value="1" checked> 남성
+                <input type="radio" name="gender" value="0"> 여성
+            </label><br>
+            <label>
+                <span>키 :</span> 
+                <input type="text" name="height" id="height" placeholder="키를 cm로 입력">
+            </label><br>
+            <label>
+                <span>몸무게 :</span> 
+                <input type="text" name="weight" id="weight" placeholder="몸무게(kg)를 입력">
+            </label><br>
+            <input type="submit" value="회원가입">
+        </form>
+    </div>
+</body>
+</html>

@@ -24,7 +24,7 @@ public class PhoneDTO {
 	private LocalDate birthday;
 	private Boolean ftype;
 	
-	// Entity를ㄹ 받아서 DTO로 반환
+	// Entity를 받아서 DTO로 반환
 	public static PhoneDTO toDTO(PhoneEntity phoneEntity) {
 		return  PhoneDTO.builder()
 				.id(phoneEntity.getId())
