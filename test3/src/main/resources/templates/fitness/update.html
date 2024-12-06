@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전화번호 수정</title>
+</head>
+<body>
+    <div>
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo.png}" alt="Home">
+        </a>
+    </div>
+
+    <div>
+        <form th:action="@{/fitness/update}" method="POST">
+            <input type="hidden" name="id" th:value="${fitness.id}">
+            <label> 이름:
+                <input type="text" name="fname" th:value="${fitness.fname}">
+            </label><br>
+
+			<label> 성별:
+                <input type="radio" name="gender" value="1" th:checked="${fitness.gender}==true"> 외향적
+                <input type="radio" name="gender" value="0" th:checked="${fitness.gender}!=true"> 내성적
+            </label><br>
+            
+            <label> 키:
+                <input type="text" name="height" th:value="${fitness.height}">
+            </label><br>
+
+            <label> 몸무게:
+                <input type="text" name="weight" th:value="${fitness.weight}">
+            </label><br>
+			<input type="hidden" name="joinDate" th:value="${fitness.joinDate}">
+            <input type="submit" value="수정">
+
+        </form>
+    </div>
+</body>
+</html>

@@ -69,7 +69,7 @@ public class FitnessDTO {
 	
 	// Entity를 받아서 DTO로 반환
 	public static FitnessDTO toDTO(FitnessEntity fitnessEntity) {
-		FitnessDTO dto =  FitnessDTO.builder()
+		return FitnessDTO.builder()
 			.id(fitnessEntity.getId())
 			.fname(fitnessEntity.getFname())
 			.gender(fitnessEntity.getGender())
@@ -77,9 +77,5 @@ public class FitnessDTO {
 			.weight(fitnessEntity.getWeight())
 			.joinDate(fitnessEntity.getJoinDate())
 			.build();
-		dto.calcStdWeight();
-		dto.calcBmi();
-		dto.calcBmiResult();
-		return dto;
 	}
 }

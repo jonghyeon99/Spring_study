@@ -6,3 +6,6 @@ div.top {
     justify-content: flex-start;
     align-items: center;
 }
+h2 {
+	display: inline-block;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가계부</title>
+    <link rel="stylesheet" th:href=@{/css/main.css}>
+</head>
+<body>
+    <div class="top">
+    	<h2>[ 내 가계부 ]</h2>
+    </div>
+
+    <div>
+        <form th:action="@{/cashbook/recode}" method="POST">
+            <label> 
+                <span>구분 </span>
+                <input type="radio" name="io_type" value="1" checked> 수입
+                <input type="radio" name="io_type" value="0"> 지출
+            </label><br>
+            <label>
+                <span>메모 </span> 
+                <input type="text" name="memo" id="memo" placeholder="내용 입력">
+            </label><br>
+            <label>
+                <span>금액 </span> 
+                <input type="text" name="amount" id="amount" placeholder="금액 입력">
+            </label><br>
+            <input type="submit" value="등록">
+        </form>
+    </div>
+    <br><br>
+    <div>
+        <table class="table" border="1">
+            <thead class="table-dark">
+                <tr>
+                    <th>날짜</th>
+                    <th>구분</th>
+                    <th>메모</th>
+                    <th>금액</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="recode : ${list}">
+                    <td th:text="${recode.regdate}"></td>
+                    <td th:text="${recode.io_type} ? '수입' : '지출'"></td>
+                    <td th:text="${recode.memo}"></td>
+                    <td th:text="${recode.amount}"></td>
+                    <td>
+                        <a th:href="@{/cashbook/delete(id=${recode.cash_seq})}" class="btn btn-outline-warning">삭제</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
