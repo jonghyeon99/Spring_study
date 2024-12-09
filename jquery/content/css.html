@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. 제이쿼리를 이용한 DOM에 접근</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        // DOM 접근하기(CSS 선택자와 유사)
+        $(function(){
+            $('li').css('font-size', '1.2em');
+            $('li:nth-child(1)').css('color', 'red');  // 1은 count이다!
+
+
+            // jQuery는 마지막으로 처리한 함수의 리턴타입이 jquery 객체일 경우
+            // "method chaining"을 할 수 있다.
+            let temp = $('.myclass.otherclass');    // 배열
+            temp.css('border', '3px solid blue').css('color', 'magenta');
+            
+            $('.myclass.otherclass').class('border', '3px solid blue').css('color', 'magenta');
+        });
+    </script>
+</head>
+<body>
+    <h2>[ 2. 제이쿼리를 이용한 DOM에 접근 ]</h2>
+    <p>첫 번째 문장</p>
+    <div id="main">
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <hr>
+    <p>두 번째 문장</p>
+    <div class="myclass">div의 .myclass</div>
+    <div class="myclass otherclass">div의 .myclass.otherclass</div>
+    <span class="myclass otherclass">span의 .myclass.otherclass</span>
+</body>
+</html>
