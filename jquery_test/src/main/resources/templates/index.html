@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+    	label {
+    		display: block;
+    	}
+    	label span.title {
+    		display : inline-block;
+    		width: 80px;
+    		height: 30px;
+    	}
+    </style>
+    <script th:src=@{/js/jquery-3.7.1.min.js}></script>
+    <script defer th:src=@{/js/join.js}></script>
+</head>
+<body>
+    <h2>[ 회원 가입 ]</h2>
+    <div>
+        <form th:action="@{/join}" method="POST" id="joinForm">
+        	<label>
+        		<span class="title">아이디: </span>
+	            <input type="text" name="userid" id="userid">
+            </label>
+            <label>
+            	<span class="title">이메일: </span>
+            	<input type="email" name="email" id="email">
+            </label>
+            <label>
+            	<span class="title">나이: </span>
+            	<input type="number" name="age" id="age">
+            </label>
+            <label>
+            	<span class="title">지역: </span>
+            	<select name="location">
+            		<option value="서울시">서울시
+            		<option value="김포시">김포시
+            		<option value="제주시">제주시
+            		<option value="고양시">고양시
+            		<option value="인천시">인천시
+            	</select>
+            </label>
+            <input type="button" id="join" value="가입신청">
+        </form>
+    </div>
+    <th:block th:unless="${member != null}">
+    	<p>입력된 정보가 없습니다.</p>
+    </th:block>
+    <th:block th:if="${member != null}">
+	    <p id="target">
+	    	아이디 : <span th:text="${member.userid}"></span><br>
+	    	이메일 : <span th:text="${member.email}"></span><br>
+	    	나이 : <span th:text="${member.age}"></span><br>
+	    	지역 : <span th:text="${member.location}"></span><br>
+	    </p>
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. html(), text(), attr()</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $('#btnText').on('click', function(){
+                let myText = $('#myText').text();   // 읽어오기
+                $('#target').text(myText);          // 쓰기
+
+                let data = '나리나리 <b style="color:red;">개나리</b> 입에 따다 물고요.';
+                $('#myText').html(data);
+            });
+
+            $('#btnImg').on('click', function(){
+                let myImg = $('img').attr('src');
+                let mySrc = '../images/face2.png';
+                $('img').attr('src', mySrc);
+            });
+
+            $('img').on('mouseenter', function(){
+                $(this).attr('src', '../images/face2.png');
+            });
+
+            $('img').on('mouseleave', function(){
+                $(this).attr('src', '../images/face1.png');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>[ 6. html(), text(), attr() ]</h2>
+    <p id="myText">무궁화 꽃이 피었습니다.</p>
+    <p id="target"></p>
+    <p>
+        <img src="../images/face1.png" alt="얼굴1">
+    </p>
+    <p>
+        <input type="button" value="글씨를 바꿔요" id="btnText">
+        <input type="button" value="그림을 바꿔요" id="btnImg">
+    </p>
+</body>
+</html>

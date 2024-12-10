@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. find(), end()</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            // 특정 요소를 찾게 되면 연쇄적으로 찾을 때마다 요소의 개수가 점점 좁아짐
+            // end()를 하게 되면 마지막으로 검색한 이전 단계로 돌아감
+            $('ul').find('.item1').css('background-color', 'silver')
+                    .end()
+                    .find('.item3').css('background-color', 'gold');
+        });
+     </script>    <!-- $(함수), $('태그명'), $('<p>abc</p>'), $(this), $('document') -->
+</head>
+<body>
+    <h2>[ 5. find(), end() ]</h2>
+    <ul class="first">
+        <li class="item1">Item1</li>
+        <li>Item2</li>
+        <li class="item3">Item3</li>
+    </ul>
+    <ul class="second">
+        <li class="item1">Item1</li>
+        <li>Item2</li>
+        <li class="item3">Item3</li>
+    </ul>
+</body>
+</html>

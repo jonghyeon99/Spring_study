@@ -1,5 +1,0 @@
-package net.scit.spring5.dto;
-
-public class PhoneDTO {
-
-}
