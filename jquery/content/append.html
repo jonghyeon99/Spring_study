@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. 요소 추가(prepend(), append()</title>
+    <style>
+        div#app,
+        div#app2 {
+            border: 1px solid blueviolet;
+        }
+        hr {
+            margin: 30px 0;
+        }
+    </style>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function() {
+            $('#append').on('click', function() {
+                let myimg = ['../images/face3.png',
+                            '../images/face4.png',
+                            '../images/face5.png',
+                            '../images/face6.png',
+                            '../images/face7.png',
+                            '../images/face8.png',
+                            '../images/face9.png'
+                ]
+                let choice = Math.floor(Math.random() * myimg.length);
+                let tag = `<img src="${myimg[choice]}" alt="얼굴">`;
+                $('#app').append(tag); // 자식으로 추가한다.
+            });
+
+            // prepend 동작
+            $('#prepend').on('click', function() {
+                // $('#app2').append($('#app2 img:first'));
+                $('#app2').prepend($('#app2 img:last'));
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>[ 9. 요소 추가(prepend(), append() ]</h2>
+    <button id="append">Append를 이용한 추가</button>
+    <div id="app"></div>
+    <hr>
+    <button id="prepend">Prepend를 이용한 추가</button>
+    <div id="app2">
+        <img src="../images/face3.png" alt="얼굴">
+        <img src="../images/face4.png" alt="얼굴">
+        <img src="../images/face5.png" alt="얼굴">
+        <img src="../images/face6.png" alt="얼굴">
+        <img src="../images/face7.png" alt="얼굴">
+        <img src="../images/face8.png" alt="얼굴">
+        <img src="../images/face9.png" alt="얼굴">
+    </div>
+</body>
+</html>

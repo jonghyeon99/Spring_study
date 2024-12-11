@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. 요소 삭제 (remove(), empty())</title>
+    <style>
+        div#app,
+        div#app2 {
+            border: 1px solid blueviolet;
+        }
+        hr {
+            margin: 30px 0;
+        }
+    </style>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function() {
+            $('#remove').on('click', function() {
+                // $('#app').remove(); // 선택한 태그와 그 하위 태그를 모두 삭제
+                $('#app img:first').remove();
+            });
+            $('#empty').on('click', function() {
+                // 하위 태그를 가질 수 없는 단일요소 <img> <input> 등은 empty 불가
+                $('#app2').empty(); // 선택한 태그의 하위 태그를 모두 삭제
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>[ 10. 요소 삭제 (remove(), empty()) ]</h2>
+    <button id="remove">remove를 이용한 삭제</button>
+    <div id="app">
+        <img src="../images/face3.png" alt="얼굴">
+        <img src="../images/face4.png" alt="얼굴">
+        <img src="../images/face5.png" alt="얼굴">
+        <img src="../images/face6.png" alt="얼굴">
+        <img src="../images/face7.png" alt="얼굴">
+        <img src="../images/face8.png" alt="얼굴">
+        <img src="../images/face9.png" alt="얼굴">
+    </div>
+    <hr>
+    <button id="empty">empty를 이용한 삭제</button>
+    <div id="app2">
+        <img src="../images/face3.png" alt="얼굴">
+        <img src="../images/face4.png" alt="얼굴">
+        <img src="../images/face5.png" alt="얼굴">
+        <img src="../images/face6.png" alt="얼굴">
+        <img src="../images/face7.png" alt="얼굴">
+        <img src="../images/face8.png" alt="얼굴">
+        <img src="../images/face9.png" alt="얼굴">
+    </div>
+</body>
+</html>

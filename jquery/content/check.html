@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11. checkbox의 상태확인</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function() {
+            $('#check1').on('change', function() {
+                $('p#result').html(
+                    'attr : ' + $(this).attr('checked') + '<br>'
+                    + 'is = ' + $(this).is(':checked') + '<br>'
+                    + 'prop = ' + $(this).prop('checked') + '<br>'
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>[ 11. checkbox의 상태확인(is, prop, attr) ]</h2>
+    <div>
+        <input type="checkbox" id="check1" checked="checked">
+        <label for="check1">Remember Me</label>
+    </div>
+    <p id="result"></p>
+</body>
+</html>
