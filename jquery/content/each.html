@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12. 반목문(each)</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+            float: left;
+        }
+        p {
+            clear: both;
+        }
+    </style>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function() {
+            
+            let tag = $('div');
+            
+            // tag.css('background-color', color);
+            $('#start').on('click', function(){
+                let id =  setInterval(function() {
+                    tag.each(function(index, item) {
+                        let red = Math.floor(Math.random() * 256);
+                        let green = Math.floor(Math.random() * 256);
+                        let blue = Math.floor(Math.random() * 256);
+                        let color = `rgb(${red}, ${green}, ${blue})`;
+                        $(this).css('background-color', color);
+                        
+                    });
+                }, 1000);
+                
+                $('#stop').on('click', function() {
+                    clearInterval(id);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>[ 12. 반목문(each) ]</h2>
+    <!-- jQuery객체.each(function(index, item){});
+        - jQuery 객체는 반복이 가능한 형태의 iterable 데이터이다.
+        - iterable 객체 하나를 가지고 할 작업
+        - function()의 전달인자 index와 item은
+            index : 반복되고 있는 iterable 데이터의 index
+            item : 반복되고 있는 iterable 데이터 한 개
+
+    $.each(data, function(index, item) {})
+        - data는 iterable 데이며이며, jQuery 객체가 아니어도 된다.
+        - function()의 전달인자 index와 item은
+            index : 반복되고 있는 iterable 데이터의 index
+            item : 반복되고 있는 iterable 데이터 한 개
+
+    let data1 = $('div');   -- jQuery 객체
+    let data2 = [1, 2, 3, 4, 5];
+    let data3 = $(data2);   -- jQuery 객체 -->
+
+    <div>하나</div>
+    <div>둘</div>
+    <div>셋</div>
+    <div>넷</div>
+    <div>다섯</div>
+    <p>
+        <input type="button" value="시작" id="start">
+        <input type="button" value="끝" id="stop">   
+    </p>
+</body>
+</html>

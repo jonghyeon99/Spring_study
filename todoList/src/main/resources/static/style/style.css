@@ -1,0 +1,13 @@
+a {
+    text-decoration: none;
+}
+a img, h2{
+    display: inline-block;
+    vertical-align: middle;
+}
+a h2 {
+    color: black;
+}
+.title {
+    display: inline-block;
+}

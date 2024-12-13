@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}">
+</head>
+<body>
+    <a th:href="@{/}" class="title">
+        <img th:src="@{/img/todolist.png}" alt="todoList">
+        <h2>[ Todo List ]</h2>
+    </a>
+    <br>
+    <a th:href="@{/todoList/todoRegist}">Todo List 추가 및 보기</a>
+</body>
+</html>
