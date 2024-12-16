@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[연습] 고객 관리</title>
+    <style>
+        h2 {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        div#vip {
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        div#btns {
+            width: 1000px;
+            margin: 25px auto;
+        }
+
+        hr {
+            width: 1000px;
+            margin: 20px auto;
+            border: 2px solid skyblue;
+        }
+
+        table {
+            width: 1000px;
+            border-top: 2px solid gray;
+            border-bottom: 2px solid gray;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        table>thead:nth-child(1) {
+            background-color: #efefef;
+        }
+
+        .w50 {
+            width: 50px;
+        }
+
+        .w200 {
+            width: 200px;
+        }
+
+        .w300 {
+            width: 300px;
+        }
+    </style>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script>
+        $(function() {
+        	init();
+        	
+            $('#regist').on('click', appendCustomer);
+            $('#checkAll').on('click', function() {
+                if($(this).is(':checked')) {
+                    $('input[type=checkbox]').prop('checked', true);
+                } else {
+                    $('input[type=checkbox]').prop('checked', false);
+                }
+            });
+
+            // 상단의 삭제버튼을 클릭하면 체크된 나머지 요소도 삭제
+            $('#deleteAllBtn').on('click', function() {
+                $('td input[type=checkbox]:checked').parent().parent().remove();
+            });
+        });
+        
+        // 초기화 함수
+        function init() {
+        	$.ajax({
+        		url: 'list',
+        		method: 'GET',
+        		success : output
+        	})
+        }
+        
+        // 화면에 데이터 출력
+        function output(resp) {
+        	// 풀어헤쳐서 화면에 꽂을 것!!!
+            $(resp).each(function(index, data) {
+                let name = data['name'];
+                let phone = data['phone'];
+                let gender = data['gender'];
+                let location = data['location'];
+
+                print(name, phone, gender, location)
+            })
+        }	
+        
+        // 값을 태그로 만든 후 화면에 출력
+        function print (name, phone, gender, location) {
+            let tag = `
+        		<tbody>
+        			<tr>
+        				<td><input type="checkbox"></td>
+        				<td>${name}</td>
+        				<td>${phone}</td>
+        				<td>${gender}</td>
+        				<td>${location}</td>
+        				<td><input type="button" value="삭제" class="deleteBtn"></td>
+        			</tr>
+        		</tbody>
+        	`;
+
+            $('#result table').append(tag);
+            $('.deleteBtn').on('click', deleteCustomer);
+        };
+        	
+        
+        
+        function appendCustomer() {
+            let name = $('#name').val();
+            let phone = $('#phone').val();
+            let gender = $('input[type=radio]:checked').val();
+            let location = $('#location').val();
+
+            let tag = `<tr>
+                        <td><input type="checkbox"></td>
+                        <td>${name}</td>
+                        <td>${phone}</td>
+                        <td>${gender}</td>
+                        <td>${location}</td>
+                        <td><input type='button' value="삭제" class="deleteBtn"></td>
+                        </tr>`;
+            $('div#result table').append(tag);
+            $('.deleteBtn').on('click', deleteCustomer);
+        }
+        function deleteCustomer(event) {
+            $(this).parent().parent().remove(); 
+            event.stopImmediatePropagation();
+        }
+    </script>
+</head>
+<body>
+    <h2>[연습] 우수고객 등록</h2>
+    <div id="vip">
+        <label>이름:<input type="text" id="name"></label>&nbsp;
+        <label>전화번호:<input type="text" id="phone"></label>&nbsp;
+        <label>성별:
+            <input type="radio" id="gender" name="gender" value="여성" checked> 여성
+            <input type="radio" id="gender" name="gender" value="남성"> 남성
+        </label>&nbsp;&nbsp;
+        <label>주소지:<input type="text" id="addr"></label>&nbsp;
+        <input type="button" value="등록" id="regist">
+    </div>
+    <div id="btns">
+        <input type="button" id="deleteAllBtn" value="삭제">
+    </div>
+    <hr>
+    <div id="result">
+        <table>
+            <thead>
+                <tr>
+                    <th class="w50">
+                        <input type="checkbox" id="checkAll">
+                    </th>
+                    <th class="w200 name">이름</th>
+                    <th class="w200 phone">전화번호</th>
+                    <th class="w200 gender">성별</th>
+                    <th class="w300 location">주소지</th>
+                    <th class="w50 delBtns"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+</html>

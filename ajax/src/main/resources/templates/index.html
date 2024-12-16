@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX를 이용한 데이터 송수신</title>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script>
+        $(function(){
+            $('#req1').on('click', req1);
+            $('#req2').on('click', req2);
+            $('#req3').on('click', req3);
+        });
+
+        // 1) 첫 번째 일정
+        function req1() {
+            $.ajax({
+                url : 'ajaxReq1',
+                method : 'GET',
+                success : function(resp){
+                    console.log('응답이 왔음 ==> ' + resp);
+                }
+            });
+        }
+        // 2) 두 번째 일정
+        function req2() {
+            // 데이터 수집
+            let name = $('#name').val();
+            let phone = $('#phone').val();
+            let sendData = {"name" : name, "phone" : phone};
+
+            $.ajax({
+                url: 'ajaxReq2',
+                method: 'post',
+                data: sendData,
+                success : function(resp) {
+                    let name = resp["name"];
+                    let phone = resp["phone"];
+                    let tag = `이름 : ${name}<br>
+                               번호 : ${phone}<br>`
+                    $('#req2Result').html(tag);
+                }
+            })
+        }
+        
+        // 3) 세 번째 요청
+        function req3() {
+        	$.ajax({
+        		url: 'ajaxReq3',
+        		method: 'GET',
+        		success : function (resp) {
+        			let data = '';
+                    $.each(resp, function(index, item) {
+                        data += item + "<br>"
+                    });
+                    $('#req3Result').html(data);
+        		}
+        	})
+        }
+
+    </script>
+</head>
+<body>
+    <h2>[ AJAX를 이용한 데이터 송수신 - 기초 ]</h2>
+    <ul>
+        <li>
+            <input type="button" id="req1" value="1. Ajax로 서버에 요청보내기">
+            <span>응답결과는 브라우저의 console창 확인하세요</span>
+        </li><br>
+        <li>
+            <label for="name">
+                이름: <input type="text" id="name">
+            </label>
+            <label for="phone">
+                번호: <input type="text" id="phone">
+            </label>
+            <input type="button" id="req2" value="2. AJAX로 데이터 송수신">
+            <p id="req2Result" style="color:red"></p>
+        </li><br>
+        <li>
+        	<input type="button" id="req3" value="3. 문자열 여러 개 수신요청">
+        	<p id="req3Result" style="color:blue"></p>
+        </li><br>
+    </ul>
+
+    <p><a th:href="@{/customer}">(Next)우수 고객 목록</a></p>
+</body>
+</html>
