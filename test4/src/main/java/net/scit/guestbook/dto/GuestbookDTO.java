@@ -18,16 +18,16 @@ import net.scit.guestbook.entity.GuestbookEntity;
 @Builder
 public class GuestbookDTO {
 	private Integer seqno;
-	private String guest_name;
-	private String guest_pwd;
+	private String guestName;
+	private String guestPwd;
 	private String content;
 	private LocalDate regdate;
 	
-	public static GuestbookDTO toDto(GuestbookEntity guestbookEntity) {
+	public static GuestbookDTO toDTO(GuestbookEntity guestbookEntity) {
 		return GuestbookDTO.builder()
 				.seqno(guestbookEntity.getSeqno())
-				.guest_name(guestbookEntity.getGuest_name())
-				.guest_pwd(guestbookEntity.getGuest_pwd())
+				.guestName(guestbookEntity.getGuestName())
+				.guestPwd(guestbookEntity.getGuestPwd())
 				.content(guestbookEntity.getContent())
 				.regdate(guestbookEntity.getRegdate())
 				.build();

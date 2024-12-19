@@ -23,6 +23,38 @@
         }
         event.stopImmediatePropagation();
     }
+    $(function () {
+        $('#choiceBtn').on('click', function () {
+            let selectedImportance = $('#importanceCho').val();
+            let selectedCategory = $('#categoriesCho').val();
+
+            let hasVisibleRow = false;
+
+            $('#list table tr').each(function (index) {
+                if (index === 0) {
+                    $(this).show();
+                    return;
+                }
+
+                let rowImportance = $(this).find('td:nth-child(4)').text();
+                let rowCategory = $(this).find('td:nth-child(2)').text();
+
+                if ((selectedImportance === rowImportance || selectedImportance === '') &&
+                    (selectedCategory === rowCategory || selectedCategory === '')) {
+                    $(this).show();
+                    hasVisibleRow = true;
+                } else {
+                    $(this).hide();
+                }
+            });
+
+            if (!hasVisibleRow) {
+                $('#list table tr:first-child').hide();
+            }
+        });
+    });
+
+
 </script>
 </head>
 <body>
@@ -82,6 +114,22 @@
     <div id="list">
 		<table>
 			<th:block th:if="${list != null and list.size() > 0}">
+			<label>
+				<span>중요도 : </span>
+                <select name="importanceCho" id="importanceCho">
+				    <option value="높음">높음</option>
+				    <option value="보통">보통</option>
+				    <option value="낮음">낮음</option>
+				</select>
+            </label>
+            <label>
+				<span>분류 : </span>
+                <select name="categoriesCho" id="categoriesCho">
+				    <option value="개인">개인</option>
+				    <option value="회사">회사</option>
+				</select>
+            </label>
+            <input type="button" id="choiceBtn" value="조회">
 			    <tr>
 			        <th>날짜</th>
 			        <th>분류</th>

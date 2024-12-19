@@ -30,7 +30,7 @@ public class TodoListService {
 	}
 	
 	public List<TodoListDTO> selectAll() {
-		List<TodoListEntity> temp = repository.findAll(Sort.by(Sort.Direction.ASC, "seqno"));
+		List<TodoListEntity> temp = repository.findAll(Sort.by(Sort.Direction.DESC, "regdate"));
 		List<TodoListDTO> list = new ArrayList<>();
 		
 		for(TodoListEntity entity : temp) {

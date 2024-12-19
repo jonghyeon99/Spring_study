@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>[ Employees ]</h2>
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름(FirstName)</th>
+			<th>급여</th>
+			<th>부서명</th>
+		</tr>
+		<tr th:each="emp, status : ${list}">
+			<td th:text="${status.count}"></td>
+			<td th:text="${emp.firstName}"></td>
+			<td th:text="${emp.salary}"></td>
+			<td th:text="${emp.departmentName}"></td>
+			<!-- <th:block th:if="${emp.department} != null">
+				<td th:text=${emp.department.departmentName}></td>
+			</th:block>
+			
+			<th:block th:unless="${emp.department} != null">
+				<td>부서 없음</td>
+			</th:block> -->
+		</tr>
+	</table>
+</body>
+</html>

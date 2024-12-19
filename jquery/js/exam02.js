@@ -34,6 +34,14 @@ function init() {
     });  // end each()
 }
 
+function appendCustomer() {
+    let name = $('#name').val();
+    let phone = $('#phone').val();
+    let gender = $('input[type=radio]:checked').val();
+    let addr = $('#addr').val();
+
+    output(name, phone, gender, addr);
+}
 // 값을 태그로 만든 후 화면에 출력
 function output(name, phone, gender, addr) {
     let tag = `
@@ -51,14 +59,6 @@ function output(name, phone, gender, addr) {
 
     $('#result table').append(tag);
     $('.deleteBtn').on('click', deleteItem);
-}
-function appendCustomer() {
-    let name = $('#name').val();
-    let phone = $('#phone').val();
-    let gender = $('input[type=radio]:checked').val();
-    let addr = $('#addr').val();
-
-    output(name, phone, gender, addr);
 }
 
 function deleteItem(event) {  // e: 브라우저가 던져주는 event 객체
