@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Security 적용한 페이지</title>
+<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+<script>
+	let check = true;	// 사용가능한 아이디면 true (전역변수)
+	$(function() {
+		$('#duplicate').on('click', duplicateCheck);
+	});
+	
+	function duplicateCheck() {
+		let userId = $('#userId').val();
+		
+		if(userId.trim().length < 3 || userId.trim().length > 5) {
+			$('#idCheck').text('사용 불가능한 아이디 입니다.');
+  		  	$('#idCheck').css('color', 'red');
+  		  	
+			$('#userId').select();
+			return;
+		}
+		
+		$.ajax({
+			url: 'idCheck'
+		  , method: 'POST'
+		  , data : {"userId" : userId}
+		  , success : function(resp) {	// resp는 t/f
+			  check = resp;
+		  	  // 응답값이 true면 사용가능
+		  	  if(resp) {
+		  		  check = true;
+		  		  $('#idCheck').text('사용가능한 아이디 입니다.');
+		  		  $('#idCheck').css('color', 'blue');
+		  	  } else {
+		  		  check = false;
+		  		  $('#idCheck').text('사용 불가능한 아이디 입니다.');
+		  		  $('#idCheck').css('color', 'red');
+		  	  }
+		  }
+		})
+	}
+</script>
+</head>
+<body>
+	<div>
+		<a th:href="@{/}">
+			<img alt="logo" th:src="@{/images/logo.png}">
+		</a>
+		<h2>회원가입</h2>
+	</div>
+	<div>
+		<form th:action="@{/joinProc}" method="POST">
+			<label>
+				User ID : <input type="text" name="userId" id="userId">
+				<input type="button" id="duplicate" value="중복확인">
+				<span id="idCheck"></span>
+			</label><br>
+			
+			<label>
+				Password : <input type="password" name="userPwd">
+			</label><br>
+			
+			<label>
+				User Name : <input type="text" name="userName">
+			</label><br><br>
+			<input type="submit" value="회원가입">
+		</form>
+	</div>
+</body>
+</html>
