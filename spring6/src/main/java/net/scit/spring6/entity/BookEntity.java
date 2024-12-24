@@ -2,7 +2,6 @@ package net.scit.spring6.entity;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,49 +15,51 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import net.scit.spring6.dto.BookDTO;
-import net.scit.spring6.dto.ReadingNoteDTO;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
+@ToString
 @Builder
+
 @Entity
 @Table(name="book")
 public class BookEntity {
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="book_seq")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer bookSeq;
-	
-	@Column(name="title")
+
+	@Column(name = "title", nullable = false)
 	private String title;
-	
-	@Column(name="writer")
+
+	@Column(name = "writer", nullable = false)
 	private String writer;
-	
-	@Column(name="publisher")
+
+	@Column(name = "publisher", nullable = false)
 	private String publisher;
-	
+
 	@Column(name="purchase_date")
 	private LocalDate purchaseDate;
 	
 	@Column(name="price")
 	private Integer price;
 
-	@OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
-    private ReadingNoteEntity readingNote;
-	
+//    @OneToOne(mappedBy = "bookEntity")
+//    private ReadingNoteEntity readingNoteEntity;
+    
 	public static BookEntity toEntity(BookDTO bookDTO) {
-	    return BookEntity.builder()
-	            .bookSeq(bookDTO.getBookSeq())
-	            .title(bookDTO.getTitle())
-	            .writer(bookDTO.getWriter())
-	            .publisher(bookDTO.getPublisher())
-	            .purchaseDate(bookDTO.getPurchaseDate())
-	            .price(bookDTO.getPrice())
-	            .build();
+		BookEntity entity = BookEntity.builder()
+				.bookSeq(bookDTO.getBookSeq())
+				.title(bookDTO.getTitle())
+				.writer(bookDTO.getWriter())
+				.publisher(bookDTO.getPublisher())
+				.purchaseDate(bookDTO.getPurchaseDate())
+				.price(bookDTO.getPrice())
+				.build();
+		return entity;
 	}
 }

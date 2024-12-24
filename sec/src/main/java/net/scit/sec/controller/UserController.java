@@ -43,7 +43,11 @@ public class UserController {
 	@PostMapping("/idCheck")
 	@ResponseBody
 	public boolean idCheck(@RequestParam(name="userId") String userId) {
-		
-		return true;
+		boolean result = userService.idCheck(userId);
+		System.out.println("=============" + result);
+		return result;
 	}
+	
+	// login 요청은 일반 Controller에서 하면 안 됨!!!
+	// Security가 처리하기 때문에!!!
 }

@@ -2,6 +2,10 @@ package net.scit.spring6.dto;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,26 +17,35 @@ import net.scit.spring6.entity.ReadingNoteEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @ToString
+
 @Builder
 public class ReadingNoteDTO {
-
-	private String readingSeq;
+	private Integer readingSeq;
 	private String readStatus;
 	private LocalDate readDate;
 	private String bookReview;
 	private Integer bookSeq;
-    private String book;
-    
-    public static ReadingNoteDTO toDTO(ReadingNoteEntity entity) {
-        return ReadingNoteDTO.builder()
-                .readingSeq(entity.getReadingSeq())
-                .readStatus(entity.getReadStatus())
-                .readDate(entity.getReadDate())
-                .bookReview(entity.getBookReview())
-                .bookSeq(entity.getBook().getBookSeq()) // BookEntity의 bookSeq를 가져옴
-                .build();
-    }
+	
+	private BookDTO bookDTO;
+	
+	public static ReadingNoteDTO toDTO(ReadingNoteEntity entity) {
+		ReadingNoteDTO dto = ReadingNoteDTO.builder()
+				.readingSeq(entity.getReadingSeq())
+				.readStatus(entity.getReadStatus())
+				.readDate(entity.getReadDate())
+				.bookReview(entity.getBookReview())
+				.bookDTO(BookDTO.toDTO(entity.getBookEntity()))
+				.build();
+			return dto;
+	}
 }
+
+
+
+
+
+
+

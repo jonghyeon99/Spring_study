@@ -27,4 +27,13 @@ public class UserService {
 		log.info("---- {}", entity.toString());
 		repository.save(entity);
 	}
+	/*
+	 * 전달받은 userId값이 DB에 존재하는지 확인코드
+	 */
+	public boolean idCheck(String userId) {
+		boolean result = repository.existsByUserId(userId);
+		
+		System.out.println("===========" + result); // 있는 아이디 t, 없는 아이디 f
+		return !result;		// 없는 아이디를 사용해야 하므로 Front에서는 true로 전달
+	}
 }

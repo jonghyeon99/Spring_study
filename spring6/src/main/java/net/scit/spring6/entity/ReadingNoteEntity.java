@@ -15,42 +15,54 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import net.scit.spring6.dto.ReadingNoteDTO;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
+@ToString
+
 @Builder
 @Entity
 @Table(name="reading_note")
 public class ReadingNoteEntity {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="reading_seq")
-    private String readingSeq;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "reading_seq")
+    private Integer readingSeq;
 
-    @Column(name="read_status")
+    @Column(name = "read_status")
     private String readStatus;
 
-    @Column(name="read_date")
+    @Column(name = "read_date")
     private LocalDate readDate;
 
-    @Column(name="book_review")
+    @Column(name = "book_review")
     private String bookReview;
-
+    
     @OneToOne
     @JoinColumn(name = "book_seq", referencedColumnName = "book_seq")
-    private BookEntity book;
+    private BookEntity bookEntity;
 
-    public static ReadingNoteEntity toEntity(ReadingNoteDTO readingNoteDTO, BookEntity book) {
-        return ReadingNoteEntity.builder()
-                .readingSeq(readingNoteDTO.getReadingSeq())
-                .readStatus(readingNoteDTO.getReadStatus())
-                .readDate(readingNoteDTO.getReadDate())
-                .bookReview(readingNoteDTO.getBookReview())
-                .book(book) // BookEntity 설정
-                .build();
-    }
+	public static ReadingNoteEntity toEntity(ReadingNoteDTO readingDTO) {
+		ReadingNoteEntity entity = ReadingNoteEntity.builder()
+				.readingSeq(readingDTO.getReadingSeq())
+				.readStatus(readingDTO.getReadStatus())
+				.readDate(readingDTO.getReadDate())
+				.bookReview(readingDTO.getBookReview())
+				
+				.build();
+			return entity;
+	}
+	
 }
+
+
+
+
+
+
+
+

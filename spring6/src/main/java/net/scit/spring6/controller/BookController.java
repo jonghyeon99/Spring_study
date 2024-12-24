@@ -3,50 +3,52 @@ package net.scit.spring6.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import net.scit.spring6.dto.BookDTO;
 import net.scit.spring6.service.BookService;
 
 @Controller
-@RequestMapping("/reading")
+@RequestMapping("/book")
 @RequiredArgsConstructor
 public class BookController {
-	
-	private final BookService service;
+	private final BookService bookService;
 
+	/**
+	 * 도서 등록 화면 요청 
+	 * @return
+	 */
 	@GetMapping("/bookRegist")
-	public String bookRegist(Model model) {
-		List<BookDTO> list = service.selectAll();
-		model.addAttribute("list", list);
-		
-		return "/reading/bookRegist";
+	public String readingView() {
+		return "/book/bookRegist";
 	}
-	
+
+	/**
+	 * 도서 등록 처리 요청 
+	 * @param bookDTO
+	 * @return ajax로 결과 반환
+	 */
 	@PostMapping("/bookRegist")
-	public String bookRegist(@ModelAttribute BookDTO bookDTO, Model model) {
-		// 데이터 저장
-		service.insert(bookDTO);
-
-		// 등록 후 리스트 갱신
-		List<BookDTO> list = service.selectAll();
-		model.addAttribute("list", list);
-
-		// 리스트와 함께 같은 뷰로 이동
-		return "/reading/bookRegist";
+	@ResponseBody
+	public String readingView(@ModelAttribute BookDTO bookDTO) {
+		bookService.insert(bookDTO);
+		return "OK";
 	}
-	
-	@GetMapping("/delete")
-	public String delete(@RequestParam(name = "bookSeq") Integer bookSeq) {
-		
-		service.delete(bookSeq);
 
-		return "redirect:/reading/bookRegist";
+	/**
+	 * 책 구매 목록 전체를 요청
+	 * @return 구매 목록을 비동기 처리로 반환
+	 */
+	@GetMapping("/bookList")
+	@ResponseBody   
+	public List<BookDTO> bookList() {
+		List<BookDTO> list = bookService.selectAll();
+		return list;
 	}
+
 }

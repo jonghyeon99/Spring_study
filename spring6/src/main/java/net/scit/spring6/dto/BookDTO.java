@@ -2,6 +2,10 @@ package net.scit.spring6.dto;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,22 +16,21 @@ import net.scit.spring6.entity.BookEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @ToString
+
 @Builder
 public class BookDTO {
-	
-	private Integer bookSeq;
+	public Integer bookSeq;
 	private String title;
 	private String writer;
 	private String publisher;
 	private LocalDate purchaseDate;
-	private Integer price;
-    private String readingNote;
-    
-    public static BookDTO toDTO(BookEntity entity) {
-		return BookDTO.builder()
+	public Integer price;
+	
+	public static BookDTO toDTO(BookEntity entity) {
+		BookDTO dto = BookDTO.builder()
 				.bookSeq(entity.getBookSeq())
 				.title(entity.getTitle())
 				.writer(entity.getWriter())
@@ -35,5 +38,14 @@ public class BookDTO {
 				.purchaseDate(entity.getPurchaseDate())
 				.price(entity.getPrice())
 				.build();
+			return dto;
 	}
+	
 }
+
+
+
+
+
+
+
