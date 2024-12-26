@@ -13,6 +13,7 @@
 		let userPwd = $('#userPwd').val();
 		let userId = $('#userId').val();
 		
+		// 아이디 입력 체크
 		if(userId.trim().length < 3 || userId.trim().length > 5) {
 			alert('아이디를 3~5글자 이내로 입력하세요.');
 			$('#userId').focus();
@@ -37,7 +38,7 @@
 		<h2>로그인</h2>
 	</div>
 	<div>
-		<form th:action="@{/joinProc}" method="POST">
+		<form th:action="@{/loginProc}" method="POST">
 			<label>
 				User ID : <input type="text" name="userId" id="userId">
 			</label><br>
@@ -46,6 +47,9 @@
 				Password : <input type="password" name="userPwd" id="userPwd">
 			</label><br>
 			
+			<th:block th:if="${error}">
+				<span th:text="${errMessage}" style="color:red; font-size:0.8em;"></span><br>
+			</th:block>
 			<input type="submit" id="loginBtn" value="로그인">
 		</form>
 	</div>

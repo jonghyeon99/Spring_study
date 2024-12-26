@@ -1,6 +1,7 @@
 package net.scit.sec.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,24 @@ public class UserController {
 		return result;
 	}
 	
-	// login 요청은 일반 Controller에서 하면 안 됨!!!
-	// Security가 처리하기 때문에!!!
+	/*
+	 * 1) 로그인 화면 요청
+	 * 2) 로그인 후 아이디나 비밀번호가 잘못되었을 때에도 이 요청
+	 */
+	@GetMapping("/login")
+	public String login(@RequestParam(value="error", required = false) String error, Model model) {
+		if(error != null) {
+			model.addAttribute("error", error);
+			model.addAttribute("errMessage", "아이디나 비밀번호가 틀렸습니다.");
+		}
+		return "login";
+	}
+	
+	/*
+	 * 로그인을 안 하고 요청을 하면 login페이지로 리다이렉팅되는지 확인
+	 */
+	@GetMapping("/newsfeed")
+	public String newsfeed() {
+		return "newsfeed";
+	}
 }
