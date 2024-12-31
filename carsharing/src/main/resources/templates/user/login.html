@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+    <h2>[ 로그인 ]</h2>
+    <div th:if="${errMessage != null}" style="color:red">
+        <p th:text="${errMessage}"></p>
+    </div>
+
+    <!-- 
+       스프링 시큐리티가 /loginProc를 처리하도록 설정했으므로 
+       action="@{/loginProc}" 로 맞춰야 함 
+    -->
+    <form th:action="@{/user/loginProc}" method="POST">
+        <label for="userId">ID:</label>
+        <input type="text" name="userId" id="userId"><br><br>
+
+        <label for="userPw">비밀번호:</label>
+        <input type="password" name="userPw" id="userPw"><br><br>
+
+        <input type="submit" value="로그인">
+    </form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/orderScript.js}"></script>
+    <title>내 예약/반납 정보</title>
+</head>
+<body>
+    <h3>[ 내 예약/반납 정보 ]</h3>
+    <div id="result">
+    </div>
+    <br>
+    <a th:href="@{/car/carList}">차량 목록 페이지로 이동</a>
+</body>
+</html>

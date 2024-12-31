@@ -17,19 +17,19 @@ import net.scit.sec.entity.UserEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @ToString
 @Builder
 public class LoginUserDetails implements UserDetails {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer seq;
 	private String userId;
 	private String userPwd;
 	private String userName;
 	private String role;
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return List.of(new SimpleGrantedAuthority(role));
@@ -42,13 +42,16 @@ public class LoginUserDetails implements UserDetails {
 
 	@Override
 	public String getUsername() {
+
 		return this.userId;
 	}
-	// 사용자정의 Getter
+
+	// 사용자 정의 getter(뷰단에서 써볼라고!!)
 	public String getUserName() {
 		return this.userName;
 	}
-	// entity --> dto
+
+	// entity --> LoginUserDetails
 	public static LoginUserDetails toDTO(UserEntity userEntity) {
 		return LoginUserDetails.builder()
 				.seq(userEntity.getSeq())

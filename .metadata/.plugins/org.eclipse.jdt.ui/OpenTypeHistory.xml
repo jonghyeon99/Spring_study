@@ -2,4 +2,5 @@
 <typeInfoHistroy>
     <typeInfo handle="=sec/C:\/Users\/user\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.security\/spring-security-core\/6.4.2\/51302b2af3f01eb79fdc7164a4cc3a3aa7e3b541\/spring-security-core-6.4.2.jar=/gradle_used_by_scope=/main,test=/&lt;org.springframework.security.core.userdetails(UserDetailsService.class[UserDetailsService" modifiers="1537" timestamp="1734930849252"/>
     <typeInfo handle="=sec/C:\/Users\/user\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.security\/spring-security-core\/6.4.2\/51302b2af3f01eb79fdc7164a4cc3a3aa7e3b541\/spring-security-core-6.4.2.jar=/gradle_used_by_scope=/main,test=/&lt;org.springframework.security.core.userdetails(UserDetails.class[UserDetails" modifiers="1537" timestamp="1734930849252"/>
+    <typeInfo handle="=spring7/C:\/Users\/user\/.gradle\/caches\/modules-2\/files-2.1\/org.springframework.data\/spring-data-jpa\/3.4.1\/1c704fa9169ea3745775568e733fddd0132070b2\/spring-data-jpa-3.4.1.jar=/gradle_used_by_scope=/main,test=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1734673366547"/>
 </typeInfoHistroy>

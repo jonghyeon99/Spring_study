@@ -9,12 +9,11 @@ import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @ToString
 @Builder
 public class UserDTO {
-
 	private Integer seq;
 	private String userId;
 	private String userPwd;

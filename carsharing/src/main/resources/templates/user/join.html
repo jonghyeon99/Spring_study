@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/joinScript.js}"></script>
+    <title>회원가입</title>
+</head>
+<body>
+    <h2>[ 회원가입 ]</h2>
+    <div>
+        <form th:action="@{/user/joinProc}" method="POST">
+            <label for="userId">ID</label>
+            <input type="text" name="userId" id="userId">
+            <input type="button" id="idDuplCheckBtn" value="ID중복검사">
+            <br><br>
+
+            <label for="userPw">비밀번호</label>
+            <input type="password" name="userPw" id="userPw">
+            <br><br>
+
+            <label for="userPwCheck">비밀번호 확인</label>
+            <input type="password" name="userPwCheck" id="userPwCheck">
+            <br><br>
+            
+            <label for="userNm">이름</label>
+            <input type="text" name="userNm" id="userNm">
+			<br>
+
+            <input type="submit" id="joinBtn" value="회원가입">
+        </form>
+    </div>
+</body>
+</html>

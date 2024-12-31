@@ -16,22 +16,22 @@ import lombok.Setter;
 import lombok.ToString;
 import net.scit.sec.dto.UserDTO;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @ToString
 @Builder
+
+@Entity
 @Table(name="tbl_user")
 public class UserEntity {
-
 	@Id
 	@Column(name="seq")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer seq;
 	
-	@Column(name="user_id", unique = true)
+	@Column(name="user_id", unique=true)
 	private String userId;
 	
 	@Column(name="user_pwd", nullable = false)
@@ -55,3 +55,9 @@ public class UserEntity {
 				.build();
 	}
 }
+
+
+
+
+
+

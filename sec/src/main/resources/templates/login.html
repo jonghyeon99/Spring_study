@@ -4,54 +4,58 @@
 <meta charset="UTF-8">
 <title>Security 적용한 페이지</title>
 <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+<link rel="shortcut icon" th:href="@{/favicon.ico}">
 <script>
-	$(function() {
-		$('#loginBtn').on('click', login);
+	$(function(){
+		$('#loginBtn').on('click', loginCheck);
 	});
+	
 	// 로그인
-	function login() {
+	function loginCheck() {
 		let userPwd = $('#userPwd').val();
-		let userId = $('#userId').val();
+		let userId  = $('#userId').val();
 		
 		// 아이디 입력 체크
-		if(userId.trim().length < 3 || userId.trim().length > 5) {
-			alert('아이디를 3~5글자 이내로 입력하세요.');
+		if(userId.trim().length < 3 || userId.trim().length > 5 ) {
+			alert('아이디를 3~5글자 이내로 입력하세요');
 			$('#userId').focus();
-			return false;	// submit 진행을 중지
+			return;   // submit 진행을 중지!
 		}
-	
+		
 		// 비밀번호 길이 체크 (3~5글자)
 		if(userPwd.trim().length < 3 || userPwd.trim().length > 5) {
-			alert('비밀번호를 3~5글자 이내로 입력하세요.');
+			alert('비밀번호를 3~5글자 이내로 입력하세요');
 			$('#userPwd').focus();
-			return false;
+			return;
 		}
-		return true;
+		$('#loginForm').submit();
 	}
 </script>
 </head>
 <body>
 	<div>
 		<a th:href="@{/}">
-			<img alt="logo" th:src="@{/images/logo.png}">
+			<img th:src="@{/images/logo.png}">
 		</a>
 		<h2>로그인</h2>
 	</div>
 	<div>
-		<form th:action="@{/loginProc}" method="POST">
+		<form th:action="@{/loginProc}" method="POST" id="loginForm">
 			<label>
 				User ID : <input type="text" name="userId" id="userId">
 			</label><br>
 			
 			<label>
 				Password : <input type="password" name="userPwd" id="userPwd">
-			</label><br>
-			
+			</label><br>			
+
 			<th:block th:if="${error}">
-				<span th:text="${errMessage}" style="color:red; font-size:0.8em;"></span><br>
+				<span th:text="${errMessage}" style="color:red; font-size:0.8em;"></span> <br>
 			</th:block>
-			<input type="submit" id="loginBtn" value="로그인">
+			<input type="button" id="loginBtn" value="로그인">			
+		
 		</form>
 	</div>
+	
 </body>
 </html>

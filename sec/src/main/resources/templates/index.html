@@ -7,13 +7,11 @@
 </head>
 <body>
 	<div>
-		<a th:href="@{/}">
-			<img alt="logo" th:src="@{/images/logo.png}">
-		</a>
+		<img th:src="@{/images/logo.png}">
 		<h2>첫 페이지</h2>
 	</div>
 	<th:block th:if="${loginName != null}">
-		<div>[[${loginName}]]님, 안녕하세요.</div>
+		<div>[[ ${loginName} ]]님, 안녕하세요?</div>
 	</th:block>
 	<ul>
 		<!-- 로그인하지 않은 사용자 -->
@@ -21,13 +19,14 @@
 			<li><a th:href="@{/login}">로그인</a></li>
 			<li><a th:href="@{/join}">회원가입</a></li>
 		</th:block>
+		
 		<!-- 로그인을 한 사용자 -->
 		<th:block sec:authorize="isAuthenticated()">
-			<li><a th:href="@{/logout}">[[${loginId}]] 로그아웃</a></li>	
+			<li><a th:href="@{/logout}">[[${loginId}]], 로그아웃</a></li>
 			<li><a th:href="@{/my/update}">개인정보 페이지</a></li>
 		</th:block>
 		
-		<!-- 뉴스피드 : 로그인 한 사용자, 로그인 안 한 사람이 클릭하면 로그인 화면으로 -->
+		<!-- 뉴스피드: 로그인한 사용자. 로그인을 안한 사람이 클릭하면 로그인 화면으로 -->
 		<li><a th:href="@{/newsfeed}">뉴스피드</a></li>
 	</ul>
 </body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:sec="http://thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>카셰어링</title>
+</head>
+<body>
+	<h2>[ 카셰어링 ]</h2>
+        <div>
+        	<!-- 모든 사용자 -->
+        	<th:block sec:authorize="isAnonymous()">
+            	<a th:href="@{/user/join}">회원가입</a>
+            	<br>
+        		<a th:href="@{/user/login}">로그인</a>
+            </th:block>
+            
+            <!-- 로그인 한 사용자만 -->
+            <th:block sec:authorize="isAuthenticated()">
+	        	<a th:href="@{/user/logout}">로그아웃</a>
+            	<br>
+	        	<a th:href="@{/car/carList}">차량목록</a>
+            </th:block>
+        </div>
+</body>
+</html>
