@@ -2,6 +2,7 @@ package net.scit.spring7.dto;
 
 import java.time.LocalDateTime;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,10 +11,10 @@ import lombok.Setter;
 import lombok.ToString;
 import net.scit.spring7.entity.BoardEntity;
 
-@AllArgsConstructor
 @NoArgsConstructor
-@Getter
+@AllArgsConstructor
 @Setter
+@Getter
 @ToString
 @Builder
 public class BoardDTO {
@@ -25,7 +26,7 @@ public class BoardDTO {
 	private LocalDateTime createDate;
 	private LocalDateTime updateDate;
 	
-	// Entity--> DTO
+	// Entity --> DTO
 	public static BoardDTO toDTO(BoardEntity boardEntity) {
 		return BoardDTO.builder()
 				.boardSeq(boardEntity.getBoardSeq())
