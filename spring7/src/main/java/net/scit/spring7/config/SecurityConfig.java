@@ -7,58 +7,58 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration            // 설정 파일임
-@EnableWebSecurity        // 스프링 시큐리티 활성화
+@Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // 1) 인증/인가 설정
-        http.authorizeHttpRequests(auth -> auth
-            // 접속 권한
-            .requestMatchers(
-                "/", 
-                "/board/boardList",
-                "/board/boardDetail",
-                "/user/join",
-                "/user/login",
-                "/images/**",
-                "/js/**", 
-                "/css/**"
-            ).permitAll()                  // 로그인 안 해도 접근 가능
-            .requestMatchers("/admin").hasRole("ADMIN")
-            .requestMatchers("/mypage/**").hasAnyRole("ADMIN", "USER")
-            .anyRequest().authenticated() // 그 외 경로는 인증 필요
-        );
+	@Bean
+	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http
+				.authorizeHttpRequests((auth) -> auth
+						.requestMatchers(
+								"/"
+								, "/board/boardList"
+								, "/board/boardDetail"
+								, "/user/join"
+								, "/user/joinProc"
+								, "/user/idCheck"
+								, "/user/login"
+								, "/images/**"
+								, "/css/**"
+								, "/js/**")
+						.permitAll()
+						.requestMatchers("/admin").hasRole("ADMIN")
+						.requestMatchers("/mypage/**").hasAnyRole("ADMIN", "USER")
+						.anyRequest().authenticated());
 
-        // 2) 폼 로그인 사용
-        http.formLogin((auth) -> auth
-								 .loginPage("/user/login")
-								 .loginProcessingUrl("/user/loginProc")
-								 .usernameParameter("userId")
-								 .passwordParameter("userPw")
-								 .defaultSuccessUrl("/")
-								 .failureUrl("/user/login?error=true")
-								 .permitAll()
-		);
+		// Custom Login 설정
+		http
+			.formLogin((auth) -> auth
+					.loginPage("/user/login")
+					.loginProcessingUrl("/user/loginProc")
+					.usernameParameter("userId")
+					.passwordParameter("userPwd")
+					.failureUrl("/user/login?error=true")
+					.permitAll());
 
-        // 3) 로그아웃 설정
-        http.logout((logout) -> logout
-            .logoutUrl("/user/logout")
-            .logoutSuccessUrl("/")
-            .invalidateHttpSession(true)
-            .clearAuthentication(true)
-        );
+		// logout 설정
+		http
+			.logout((auth) -> auth
+					.logoutUrl("/user/logout")
+					.logoutSuccessUrl("/")
+					.invalidateHttpSession(true)
+					.clearAuthentication(true));
 
-        // 4) 개발 단계에서 CSRF 비활성화
-        http.csrf(csrf -> csrf.disable());
+		// POST 요청시 CSRF 토큰을 요청하므로 (Cross-Site Request Forgery) 비활성화(개발환경)
+		http
+			.csrf((auth) -> auth.disable());
 
-        return http.build();
-    }
+		return http.build();
+	}
 
-    // 비밀번호 암호화용
-    @Bean
-    BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	// 단방향 비밀번호 암호화
+	@Bean
+	BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

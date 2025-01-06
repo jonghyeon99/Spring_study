@@ -9920,3 +9920,939 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-03 16:42:52.493
 !MESSAGE Classpath changed for project: spring7
+!SESSION 2025-01-06 14:02:24.287 -----------------------------------------------
+eclipse.buildId=4.33.0.202410162246
+java.version=21.0.4
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY ch.qos.logback.classic 1 0 2025-01-06 14:02:36.215
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-01-06 14:03:09.166
+!MESSAGE Logback config file: C:\workspace\Test_Backend\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-01-06 14:03:09.899
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-01-06 14:03:09.899
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2025-01-06 14:03:10.336
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-01-06 14:03:10.336
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-01-06 14:03:15.638
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\user'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.669
+!MESSAGE Boot project ADDED: ajax
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.670
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.672
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.673
+!MESSAGE Boot project ADDED: carsharing
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.674
+!MESSAGE Boot project ADDED: hrjoin
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.675
+!MESSAGE Boot project ADDED: jquery_test
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.675
+!MESSAGE Boot project ADDED: sec
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.676
+!MESSAGE Boot project ADDED: spring6
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.676
+!MESSAGE Boot project ADDED: spring7
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.678
+!MESSAGE Boot project ADDED: todoList
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2025-01-06 14:03:15.708
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\DownloadFiles\sts-4.26.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.4.v20240802-1551\jre\bin\javaw.exe
+-Dsts.lsp.client=eclipse
+-Xmx1024m
+-XX:TieredStopAtLevel=1
+-Dspring.config.location=classpath:/application.properties
+-Xlog:jni+resolve=off
+-XX:ErrorFile=C:/workspace/Test_Backend/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1736139795706
+-Dlanguageserver.hover-timeout=225
+-jar
+C:\DownloadFiles\sts-4.26.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.58.0.202410160331\servers\spring-boot-language-server\spring-boot-language-server-1.58.0-SNAPSHOT-exec.jar
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:03:15.708
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2025-01-06 14:03:15.720
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 11060
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 14:03:22.385
+!MESSAGE Could not get if the workspace folder capability is supported due to timeout after 1 second
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.LanguageServerWrapper.supportsWorkspaceFolderCapability(LanguageServerWrapper.java:697)
+	at org.eclipse.lsp4e.LanguageServerWrapper.canOperate(LanguageServerWrapper.java:669)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.lambda$12(LanguageServiceAccessor.java:399)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getStartedWrappers(LanguageServiceAccessor.java:411)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getStartedWrappers(LanguageServiceAccessor.java:399)
+	at org.eclipse.lsp4e.LanguageServers$LanguageServerProjectExecutor.getServers(LanguageServers.java:331)
+	at org.eclipse.lsp4e.LanguageServers.executeOnServers(LanguageServers.java:421)
+	at org.eclipse.lsp4e.LanguageServers.computeFirst(LanguageServers.java:168)
+	at org.eclipse.lsp4e.LanguageServers.computeFirst(LanguageServers.java:144)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:29)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 14:48:03.742
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.5.4 from path "C:\DownloadFiles\sts-4.26.0.RELEASE\plugins\org.eclipse.wildwebdeveloper_1.2.3.202408270415\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 14:48:03.749
+!MESSAGE [Info]	Typescript Server version info: {version=5.5.4, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 14:48:03.863
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 14:48:11.690
+!MESSAGE Could not get hover region due to timeout after 1000 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverRegion(LSPTextHover.java:152)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverRegion(CompositeTextHover.java:101)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:225)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4124)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3712)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 14:48:12.693
+!MESSAGE Could not get hover information due to timeout after 1000 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverInfo(LSPTextHover.java:73)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverInfo2(CompositeTextHover.java:60)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 14:48:14.402
+!MESSAGE Could not compute  context information due to timeout after 1000 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeContextInformation(LSContentAssistProcessor.java:302)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$3.lambda$0(ContentAssistant.java:2098)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$3.run(ContentAssistant.java:2097)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeContextInformation(ContentAssistant.java:2094)
+	at org.eclipse.jface.text.contentassist.ContentAssistSubjectControlAdapter.computeContextInformation(ContentAssistSubjectControlAdapter.java:367)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.computeContextInformation(ContextInformationPopup.java:398)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.lambda$0(ContextInformationPopup.java:191)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.showContextProposals(ContextInformationPopup.java:187)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.lambda$0(ContentAssistant.java:404)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4099)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3715)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 14:48:14.456
+!MESSAGE Could not get trigger characters due to timeout after 50 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.getFuture(LSContentAssistProcessor.java:336)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.getContextInformationAutoActivationCharacters(LSContentAssistProcessor.java:384)
+	at org.eclipse.jface.text.contentassist.IContentAssistProcessorExtension$1.isContextInformationAutoActivation(IContentAssistProcessorExtension.java:128)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.getAutoActivationTriggerType(ContentAssistant.java:1252)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.keyPressed(ContentAssistant.java:346)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$InternalListener.verifyKey(ContentAssistant.java:835)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:482)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:68)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1198)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1183)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:853)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:5740)
+	at org.eclipse.swt.custom.StyledText.lambda$28(StyledText.java:5424)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1198)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1183)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1225)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1221)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1704)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4849)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:347)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4727)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:342)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5091)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3710)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 14:48:14.507
+!MESSAGE Could not get trigger characters due to timeout after 50 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.getFuture(LSContentAssistProcessor.java:336)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.getContextInformationAutoActivationCharacters(LSContentAssistProcessor.java:384)
+	at org.eclipse.jface.text.contentassist.IContentAssistProcessorExtension$1.isContextInformationAutoActivation(IContentAssistProcessorExtension.java:128)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.getAutoActivationTriggerType(ContentAssistant.java:1252)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.keyPressed(ContentAssistant.java:346)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.verifyKey(ContentAssistant.java:375)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:482)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:68)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1198)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1183)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:853)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:5740)
+	at org.eclipse.swt.custom.StyledText.lambda$28(StyledText.java:5424)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1198)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1183)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1225)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1221)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1704)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4849)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:347)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4727)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:342)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5091)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3710)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 14:48:14.567
+!MESSAGE Could not get trigger characters due to timeout after 50 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.getFuture(LSContentAssistProcessor.java:336)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.getContextInformationAutoActivationCharacters(LSContentAssistProcessor.java:384)
+	at org.eclipse.jface.text.contentassist.IContentAssistProcessorExtension$1.isContextInformationAutoActivation(IContentAssistProcessorExtension.java:128)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.getAutoActivationTriggerType(ContentAssistant.java:1252)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.keyPressed(ContentAssistant.java:346)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$InternalListener.verifyKey(ContentAssistant.java:835)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:482)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:68)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1198)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1183)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:853)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:5740)
+	at org.eclipse.swt.custom.StyledText.lambda$28(StyledText.java:5424)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1198)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1183)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1225)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1221)
+	at org.eclipse.swt.widgets.Widget.wmKeyDown(Widget.java:1950)
+	at org.eclipse.swt.widgets.Control.WM_KEYDOWN(Control.java:5150)
+	at org.eclipse.swt.widgets.Canvas.WM_KEYDOWN(Canvas.java:408)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4759)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:342)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5091)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3710)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 14:48:14.619
+!MESSAGE Could not get trigger characters due to timeout after 50 milliseconds
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.getFuture(LSContentAssistProcessor.java:336)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.getContextInformationAutoActivationCharacters(LSContentAssistProcessor.java:384)
+	at org.eclipse.jface.text.contentassist.IContentAssistProcessorExtension$1.isContextInformationAutoActivation(IContentAssistProcessorExtension.java:128)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.getAutoActivationTriggerType(ContentAssistant.java:1252)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.keyPressed(ContentAssistant.java:346)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.verifyKey(ContentAssistant.java:375)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:482)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:68)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1198)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1183)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:853)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:5740)
+	at org.eclipse.swt.custom.StyledText.lambda$28(StyledText.java:5424)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4326)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1174)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1198)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1183)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1225)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1221)
+	at org.eclipse.swt.widgets.Widget.wmKeyDown(Widget.java:1950)
+	at org.eclipse.swt.widgets.Control.WM_KEYDOWN(Control.java:5150)
+	at org.eclipse.swt.widgets.Canvas.WM_KEYDOWN(Canvas.java:408)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4759)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:342)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5091)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3710)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 14:53:02.685
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+!SESSION 2025-01-06 14:57:14.889 -----------------------------------------------
+eclipse.buildId=4.33.0.202410162246
+java.version=21.0.4
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY ch.qos.logback.classic 1 0 2025-01-06 14:57:17.101
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-01-06 14:57:20.063
+!MESSAGE Logback config file: C:\workspace\Test_Backend\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-01-06 14:57:20.709
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-01-06 14:57:20.709
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2025-01-06 14:57:21.146
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-01-06 14:57:21.146
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.546
+!MESSAGE Boot project ADDED: ajax
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.547
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.558
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.558
+!MESSAGE Boot project ADDED: carsharing
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.559
+!MESSAGE Boot project ADDED: hrjoin
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.559
+!MESSAGE Boot project ADDED: jquery_test
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.560
+!MESSAGE Boot project ADDED: sec
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.560
+!MESSAGE Boot project ADDED: spring6
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.561
+!MESSAGE Boot project ADDED: spring7
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.561
+!MESSAGE Boot project ADDED: todoList
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2025-01-06 14:57:25.573
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\DownloadFiles\sts-4.26.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.4.v20240802-1551\jre\bin\javaw.exe
+-Dsts.lsp.client=eclipse
+-Xmx1024m
+-XX:TieredStopAtLevel=1
+-Dspring.config.location=classpath:/application.properties
+-Xlog:jni+resolve=off
+-XX:ErrorFile=C:/workspace/Test_Backend/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1736143045573
+-Dlanguageserver.hover-timeout=225
+-jar
+C:\DownloadFiles\sts-4.26.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.58.0.202410160331\servers\spring-boot-language-server\spring-boot-language-server-1.58.0-SNAPSHOT-exec.jar
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 14:57:25.574
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2025-01-06 14:57:25.578
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 22256
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-01-06 14:57:25.584
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\user'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2025-01-06 15:01:51.122 -----------------------------------------------
+eclipse.buildId=4.33.0.202410162246
+java.version=21.0.4
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY ch.qos.logback.classic 1 0 2025-01-06 15:01:53.338
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-01-06 15:01:55.537
+!MESSAGE Logback config file: C:\workspace\Test_Backend\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-01-06 15:01:55.932
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-01-06 15:01:55.932
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2025-01-06 15:01:56.155
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-01-06 15:01:56.155
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.253
+!MESSAGE Boot project ADDED: ajax
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.255
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.257
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.257
+!MESSAGE Boot project ADDED: carsharing
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.260
+!MESSAGE Boot project ADDED: hrjoin
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.261
+!MESSAGE Boot project ADDED: jquery_test
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.261
+!MESSAGE Boot project ADDED: sec
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.262
+!MESSAGE Boot project ADDED: spring6
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.263
+!MESSAGE Boot project ADDED: spring7
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.263
+!MESSAGE Boot project ADDED: todoList
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2025-01-06 15:02:00.288
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\DownloadFiles\sts-4.26.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.4.v20240802-1551\jre\bin\javaw.exe
+-Dsts.lsp.client=eclipse
+-Xmx1024m
+-XX:TieredStopAtLevel=1
+-Dspring.config.location=classpath:/application.properties
+-Xlog:jni+resolve=off
+-XX:ErrorFile=C:/workspace/Test_Backend/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1736143320287
+-Dlanguageserver.hover-timeout=225
+-jar
+C:\DownloadFiles\sts-4.26.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.58.0.202410160331\servers\spring-boot-language-server\spring-boot-language-server-1.58.0-SNAPSHOT-exec.jar
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-06 15:02:00.289
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2025-01-06 15:02:00.294
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 13800
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-01-06 15:02:00.346
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\user'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 15:04:57.522
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 15:04:57.582
+!MESSAGE [Info]	Using Typescript version (user-setting) 5.5.4 from path "C:\DownloadFiles\sts-4.26.0.RELEASE\plugins\org.eclipse.wildwebdeveloper_1.2.3.202408270415\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 15:04:57.588
+!MESSAGE [Info]	Typescript Server version info: {version=5.5.4, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 15:10:58.414
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 15:11:09.860
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 15:18:42.783
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 15:18:42.794
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 15:19:05.480
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 15:23:48.140
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:66)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-01-06 15:26:03.999
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:66)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 15:29:58.507
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 16:12:10.524
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 16:12:11.079
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 16:12:12.250
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 16:12:16.165
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 16:13:00.184
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 16:22:17.212
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 16:22:17.217
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 16:22:20.926
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 16:22:42.329
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 17:13:49.817
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:49.829
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.444
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.531
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.538
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.548
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.555
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.564
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.566
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.571
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.577
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.583
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.589
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.594
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.600
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:53.606
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/BoardController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:56.534
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:58.440
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:13:59.740
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:00.700
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:04.015
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:04.024
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:24.865
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:24.868
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:26.172
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:26.194
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:27.678
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:27.691
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:29.094
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:29.097
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:31.748
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:32.507
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:36.245
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:36.255
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:39.970
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:39.980
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:42.695
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:42.703
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:47.061
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:47.078
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:48.650
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:48.658
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:51.290
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:51.295
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:52.356
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:52.396
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:54.319
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:54.329
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:58.072
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:14:58.075
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:00.434
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:00.440
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:03.612
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:03.623
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:10.210
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:10.221
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:13.576
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:13.587
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:36.106
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:15:36.107
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:17:18.869
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/resources/templates/user/login.html
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:17:29.707
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/resources/templates/user/login.html
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:17:29.715
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/resources/templates/user/login.html
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:17:34.050
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/resources/templates/user/login.html
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:17:38.334
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/resources/templates/user/login.html
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-01-06 17:34:46.986
+!MESSAGE [Info]	ESLint server running in node v20.16.0
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:34:46.992
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:34:47.013
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:34:48.330
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:34:48.332
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:34:54.061
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:34:54.062
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:35:37.412
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-01-06 17:35:37.421
+!MESSAGE [Error]	Unexpected resource file:///C:/workspace/Test_Backend/spring7/src/main/java/net/scit/spring7/controller/UserController.java
+
+!ENTRY org.eclipse.debug.core 4 2 2025-01-06 17:35:39.926
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketSendManager.sendPacket(PacketSendManager.java:92)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:202)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:242)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:274)
+	at org.eclipse.jdi.internal.ReferenceTypeImpl.signature(ReferenceTypeImpl.java:1217)
+	at org.eclipse.jdi.internal.ReferenceTypeImpl.name(ReferenceTypeImpl.java:1202)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequest(JavaBreakpoint.java:521)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequests(JavaBreakpoint.java:656)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTarget(JavaBreakpoint.java:614)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.breakpointAdded(JDIDebugTarget.java:1568)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.notifyTarget(JavaDebugOptionsManager.java:320)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.handleDebugEvents(JavaDebugOptionsManager.java:533)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1287)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1321)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:498)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.debug.core 4 125 2025-01-06 17:35:39.926
+!MESSAGE An exception occurred while dispatching debug events.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketSendManager.sendPacket(PacketSendManager.java:92)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:202)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:242)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:274)
+	at org.eclipse.jdi.internal.ReferenceTypeImpl.signature(ReferenceTypeImpl.java:1217)
+	at org.eclipse.jdi.internal.ReferenceTypeImpl.name(ReferenceTypeImpl.java:1202)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequest(JavaBreakpoint.java:521)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.createRequests(JavaBreakpoint.java:656)
+	at org.eclipse.jdt.internal.debug.core.breakpoints.JavaBreakpoint.addToTarget(JavaBreakpoint.java:614)
+	at org.eclipse.jdt.internal.debug.core.model.JDIDebugTarget.breakpointAdded(JDIDebugTarget.java:1568)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.notifyTarget(JavaDebugOptionsManager.java:320)
+	at org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager.handleDebugEvents(JavaDebugOptionsManager.java:533)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1287)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1321)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:498)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
