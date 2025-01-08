@@ -27,7 +27,6 @@ import net.scit.spring7.dto.BoardDTO;
 @Getter
 @ToString
 @Builder
-
 @Entity
 @Table(name="board")
 @EntityListeners(AuditingEntityListener.class)  // @LastModifiedDate --> 2)
@@ -54,8 +53,14 @@ public class BoardEntity {
 	private LocalDateTime createDate;
 	
 	@Column(name="update_date")
-	@LastModifiedDate      // --> 1) 
+	@LastModifiedDate
 	private LocalDateTime updateDate;
+	
+	@Column(name="original_file_name")
+	private String originalFileName;
+	
+	@Column(name="saved_file_name")
+	private String savedFileName;
 	
 	// DTO --> Entity
 	public static BoardEntity toEntity(BoardDTO boardDTO) {
@@ -65,6 +70,8 @@ public class BoardEntity {
 				.boardTitle(boardDTO.getBoardTitle())
 				.boardContent(boardDTO.getBoardContent())
 				.hitCount(boardDTO.getHitCount())
+				.originalFileName(boardDTO.getOriginalFileName())
+				.savedFileName(boardDTO.getSavedFileName())
 				.build();
 	}
 }

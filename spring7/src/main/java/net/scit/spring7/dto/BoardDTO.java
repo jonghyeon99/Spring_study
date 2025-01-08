@@ -2,7 +2,9 @@ package net.scit.spring7.dto;
 
 import java.time.LocalDateTime;
 
+import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,6 +28,13 @@ public class BoardDTO {
 	private LocalDateTime createDate;
 	private LocalDateTime updateDate;
 	
+	// 첨부된 파일을 저장하는 멤버
+	private MultipartFile uploadFile;
+	
+	// 업로드 파일이 있을 경우 View에서 사용하기 위해
+	private String originalFileName;
+	private String savedFileName;
+	
 	// Entity --> DTO
 	public static BoardDTO toDTO(BoardEntity boardEntity) {
 		return BoardDTO.builder()
@@ -36,6 +45,8 @@ public class BoardDTO {
 				.hitCount(boardEntity.getHitCount())
 				.createDate(boardEntity.getCreateDate())
 				.updateDate(boardEntity.getUpdateDate())
+				.originalFileName(boardEntity.getOriginalFileName())
+				.savedFileName(boardEntity.getSavedFileName())
 				.build();
 	}
 }

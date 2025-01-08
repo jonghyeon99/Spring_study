@@ -19,6 +19,7 @@ public class SecurityConfig {
 								"/"
 								, "/board/boardList"
 								, "/board/boardDetail"
+								, "/board/download"
 								, "/user/join"
 								, "/user/joinProc"
 								, "/user/idCheck"

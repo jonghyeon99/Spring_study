@@ -25,12 +25,12 @@
 
     <!-- 게시글 쓰기 화면 -->
     <div class="content">
-        <form th:action="@{/board/boardWrite}" method="POST">
+        <form th:action="@{/board/boardWrite}" method="POST" enctype="multipart/form-data">
             <table>
                 <tr>
                     <th>작성자</th>
                     <td> <!-- 작성자의 이름은 로그인하게되면 수정되어야 함! -->
-                        <input type="text" id="boardWriter" name="boardWriter" value="춘향이" readonly>
+                        <input type="text" id="boardWriter" name="boardWriter" th:value="${#authentication.name}" readonly>
                     </td>
                 </tr>
                 <tr>
@@ -48,7 +48,7 @@
                 <tr>
                     <th>첨부파일</th>
                     <td>
-                        <input type="file">
+                        <input type="file" name="uploadFile">
                     </td>
                 </tr>
                 <tr>

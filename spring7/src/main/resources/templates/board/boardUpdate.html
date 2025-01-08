@@ -25,7 +25,7 @@
 
     <!-- 게시글 수정 화면 -->
     <div class="content">
-        <form th:action="@{/board/boardUpdate}" method="POST">
+        <form th:action="@{/board/boardUpdate}" method="POST" enctype="multipart/form-data">
         	<input type="hidden" name="boardSeq" th:value="${board.boardSeq}">
         	<input type="hidden" name="boardWriter" th:value="${board.boardWriter}">
         	<input type="hidden" name="searchItem" th:value="${searchItem}">
@@ -65,7 +65,7 @@
                 <tr>
                     <th>첨부파일</th>
                     <td>
-                        <input type="file">
+                        <input type="file" name="uploadFile">
                     </td>
                 </tr>
                 <tr>
