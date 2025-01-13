@@ -1,7 +1,6 @@
 package net.scit.spring7.controller;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -24,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.scit.spring7.dto.BoardDTO;
 import net.scit.spring7.service.BoardService;
-import net.scit.spring7.util.FileService;
 
 @Controller
 @RequestMapping("/board")
@@ -80,7 +78,7 @@ public class BoardController {
 	}
 	
 	/**
-	 * 글자세히 보기 요청
+	 * 글 자세히 보기 요청
 	 * @return
 	 */
 	@GetMapping("/boardDetail")
@@ -158,32 +156,27 @@ public class BoardController {
 			) {
 		
 		boardService.updateBoard(boardDTO);
+		
 		rttr.addAttribute("searchItem", searchItem);
 		rttr.addAttribute("searchWord", searchWord);
 		
 		return "redirect:/board/boardList";
 	}
 	
-	/*
+	/**
 	 * 쓰레기통 아이콘을 클릭하여 파일만 삭제하는 작업
+	 * @param boardSeq
+	 * @return
 	 */
 	@GetMapping("/deleteFile")
 	public String deleteFile(
-			@RequestParam(name = "boardSeq") Long boardSeq
+			@RequestParam(name="boardSeq") Long boardSeq
 			, @RequestParam(name="searchItem", defaultValue="boardTitle") String searchItem
 			, @RequestParam(name="searchWord", defaultValue = "") String searchWord
 			, RedirectAttributes rttr
 			) {
-		BoardDTO boardDTO = boardService.selectOne(boardSeq);
 		
-		String savedFileName = boardDTO.getSavedFileName();
-		String fullPath = uploadPath + "/" + savedFileName;
-		
-		// 1) 물리적으로 존재하는 파일을 삭제
-		boolean result = FileService.deleteFile(fullPath);
-		log.info("삭제결과: {}", result);
-		
-		// 2) DB도 수정 --> file컬럼 두개의 값을 null로
+		// service단으로 삭제 요청
 		boardService.deleteFile(boardSeq);
 		
 		rttr.addAttribute("boardSeq", boardSeq);
@@ -193,8 +186,11 @@ public class BoardController {
 		return "redirect:/board/boardDetail";
 	}
 	
-	/*
+	/**
 	 * 파일 다운로드
+	 * @param boardSeq
+	 * @param response
+	 * @return
 	 */
 	@GetMapping("/download")
 	public String download(@RequestParam(name="boardSeq") Long boardSeq
@@ -206,20 +202,20 @@ public class BoardController {
 		
 		try {
 			String tempName = URLEncoder.encode(originalFileName
-					, StandardCharsets.UTF_8.toString());
+					, StandardCharsets.UTF_8.toString()) ;
 			
-			response.setHeader("Content-Disposition", "attachment;filename=" + tempName);
+			response.setHeader("Content-Disposition", "attachment;filename="+tempName);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		
 		String fullPath = uploadPath + "/" + savedFileName;
 		
-		FileInputStream fin = null;			// 로컬에서 input
-		ServletOutputStream fout = null;	// 네트워크로 output
+		FileInputStream fin = null;   		// 로컬에서   input
+		ServletOutputStream fout = null; 	// 네트워크로 output
 		
 		try {
-			fin = new FileInputStream(fullPath);
+			fin  = new FileInputStream(fullPath);
 			fout = response.getOutputStream();
 			
 			FileCopyUtils.copy(fin, fout);

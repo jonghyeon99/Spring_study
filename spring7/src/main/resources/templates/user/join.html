@@ -14,11 +14,11 @@
 
     <!-- 우리 디자인 -->
     <link rel="stylesheet" href="../../static/css/user.css" th:href="@{/css/user.css}">
-    
+
     <!-- jQuery -->
-    <script th:src="@{/js/jquery-3.7.1.min.js}" src="../../static/js/jquery-3.7.1.min.js"></script>
-    <script defer th:src="@{/js/join.js}" src="../../static/js/join.js" ></script>
-    
+    <script src="../../static/js/jquery-3.7.1.min.js" th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script defer src="../../static/js/join.js" th:src="@{/js/join.js}"></script>
+
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 
     <!-- 회원 가입 화면 -->
     <div class="content">
-        <form th:action="@{/user/joinProc}" method="post">
+        <form th:action="@{/user/joinProc}" method="POST">
             <div class="section pointColor">
                 <div class="article">
                     <ul>

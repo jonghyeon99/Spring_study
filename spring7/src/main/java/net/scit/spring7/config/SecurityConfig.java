@@ -21,9 +21,10 @@ public class SecurityConfig {
 								, "/board/boardDetail"
 								, "/board/download"
 								, "/user/join"
-								, "/user/joinProc"
 								, "/user/idCheck"
+								, "/user/joinProc"
 								, "/user/login"
+								, "/reply/replyAll"
 								, "/images/**"
 								, "/css/**"
 								, "/js/**")

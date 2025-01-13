@@ -6,9 +6,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import net.scit.spring7.entity.BoardEntity;
@@ -30,8 +30,8 @@ public class BoardDTO {
 	
 	// 첨부된 파일을 저장하는 멤버
 	private MultipartFile uploadFile;
-	
-	// 업로드 파일이 있을 경우 View에서 사용하기 위해
+
+	// 업로드 파일이 있을 경우 View에서 사용하기 위해 
 	private String originalFileName;
 	private String savedFileName;
 	

@@ -1,5 +1,7 @@
 package net.scit.spring7.service;
 
+import java.awt.JobAttributes.MultipleDocumentHandlingType;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -22,9 +24,10 @@ import net.scit.spring7.util.FileService;
 @Slf4j
 public class BoardService {
 	private final BoardRepository boardRepository;
-	
+
 	@Value("${spring.servlet.multipart.location}")
 	private String uploadPath;
+	
 	
 	/**
 	 * 1) 단순조회: 게시글 전체 목록 조회
@@ -72,14 +75,13 @@ public class BoardService {
 		String savedFileName = null;
 		String originalFileName = null;
 		
-		if (!uploadFile.isEmpty()) {
+		if(!uploadFile.isEmpty() ) {
 			savedFileName = FileService.saveFile(boardDTO.getUploadFile(), uploadPath);
-			originalFileName = boardDTO.getUploadFile().getOriginalFilename();
+			originalFileName = uploadFile.getOriginalFilename();
 		}
-		
+			
 		boardDTO.setSavedFileName(savedFileName);
 		boardDTO.setOriginalFileName(originalFileName);
-		
 		
 		BoardEntity entity = BoardEntity.toEntity(boardDTO);
 		
@@ -119,23 +121,22 @@ public class BoardService {
 	}
 
 	/**
-	 * DB에 삭제요청
+	 * DB에 게시글을 삭제 + 첨부파일도 삭제
 	 */
 	@Transactional
 	public void deleteOne(Long boardSeq) {
 		Optional<BoardEntity> temp = boardRepository.findById(boardSeq);
-
+		
 		if(!temp.isPresent()) return ;
 		
 		String savedFileName = temp.get().getSavedFileName();
 		
-		if (savedFileName != null) {
+		if(savedFileName != null) {
 			String fullPath = uploadPath + "/" + savedFileName;
 			FileService.deleteFile(fullPath);
 		}
 		
 		boardRepository.deleteById(boardSeq);
-		
 	}
 
 	/**
@@ -144,54 +145,67 @@ public class BoardService {
 	 */
 	@Transactional
 	public void updateBoard(BoardDTO boardDTO) {
-		
-		// 첨부파일이 있는지 확인
+		// 새롭게 첨부파일이 있는지 확인
 		MultipartFile file = boardDTO.getUploadFile();
-		
 		String newFile = !file.isEmpty() ? file.getOriginalFilename() : null;
-		
-		// 1) 수정하려는 데이터가 있는지 확인
+
+		// 수정하려는 데이터를 조회
 		Optional<BoardEntity> temp = boardRepository.findById(boardDTO.getBoardSeq());
 
 		if(!temp.isPresent()) return;
 		
-		// 2) 있으면 dto -> entity로 변환
+		// 조회된 데이터를 꺼냄
 		BoardEntity entity = temp.get();
 		
-		// 기존 파일이 DB에 저장되어 있는지 확인
-		String oldFile = entity.getSavedFileName();
+		String oldFile = entity.getSavedFileName();  
 		
-		// 하드디스크에서는 기존 파일이 있고 업로드한 파일도 있다면 기존 파일 삭제, 업로드한 파일 저장
-		String savedFileName = null;
+		// (1) 기존 파일이 있고 업로드한 파일도 있다면
+		//     -- 하드 디스크에서는 기존 파일을 삭제, 업로드한 파일을 저장
+		//     -- DB에는 업로드한 파일로 두개의 컬럼을 업데이트
+		// (2) 기존 파일이 없고 업로드한 파일도 있다면
+		//     -- 하드 디스크에서는 업로드한 파일을 저장
+		//     -- DB에는 업로드한 파일로 두개의 컬럼을 업데이트	
 		
-		if (newFile != null) {
-			savedFileName = FileService.saveFile(file, uploadPath);
+		// 업로드한 파일이 있다면
+		if(newFile != null) {
+			String savedFileName = null;
+			savedFileName = FileService.saveFile(file, uploadPath); 
 			
-			if (oldFile != null) {
+			entity.setSavedFileName(savedFileName);
+			entity.setOriginalFileName(newFile);
+			
+			if(oldFile != null) {
 				String fullPath = uploadPath + "/" + oldFile;
 				FileService.deleteFile(fullPath);
-			}
-		} 
-		
-		entity.setSavedFileName(savedFileName);
-		entity.setOriginalFileName(newFile);
+			} 
+		}
+
 		entity.setBoardTitle(boardDTO.getBoardTitle());
 		entity.setBoardContent(boardDTO.getBoardContent());
 	}
 
-	/*
+	/**
 	 * file명이 들어있는 2개의 컬럼의 값을 null로!
+	 * @param boardSeq
 	 */
 	@Transactional
 	public void deleteFile(Long boardSeq) {
 		Optional<BoardEntity> temp = boardRepository.findById(boardSeq);
 		
-		if (temp.isPresent()) {
+		if(temp.isPresent()) {
 			BoardEntity entity = temp.get();
+
+			String savedFileName = entity.getSavedFileName();
+			String fullPath = uploadPath +"/"+ savedFileName;
+			
+			// 1) 물리적으로 존재하는 파일을 삭제
+			boolean result = FileService.deleteFile(fullPath);
+			log.info("삭제결과: {}", result);
+			
+			// 2) DB도 수정 --> file컬럼 두개의 값을 null로
 			entity.setOriginalFileName(null);
 			entity.setSavedFileName(null);
 		}
-		
 	}
 }
 

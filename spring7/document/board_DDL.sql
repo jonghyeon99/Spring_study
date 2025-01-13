@@ -5,11 +5,11 @@ DROP TABLE IF EXISTS scit.board_user;
 
 CREATE TABLE scit.board_user 
 (
-	user_id    varchar(50)
-	, user_pwd varchar(100) NOT NULL
-	, user_name     varchar(50)  NOT NULL  -- 실명
-	, email    varchar(50)
-	, roles    varchar(50)  DEFAULT 'ROLE_USER'
+	user_id      varchar(50)
+	, user_pwd   varchar(100) NOT NULL
+	, user_name  varchar(50)  NOT NULL  -- 실명
+	, email      varchar(50)
+	, roles      varchar(50)  DEFAULT 'ROLE_USER'
 	, enabled  char(1)      DEFAULT '1'
 		, CONSTRAINT boarduser_userid  PRIMARY KEY(user_id)
 		, CONSTRAINT boarduser_roles   CHECK (roles   IN ('ROLE_USER', 'ROLE_ADMIN'))

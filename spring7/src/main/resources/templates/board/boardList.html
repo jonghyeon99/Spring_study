@@ -10,6 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" href="../../static/css/list.css" th:href="@{/css/list.css}">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/def97ee41b.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -65,13 +69,14 @@
                     <!-- 실제 글내용 (반복 구간)-->
                     <tr th:each="board, status : ${list}">
                         <td th:text="${status.count}">1</td>
-                        <td>
-                            <a th:href="@{/board/boardDetail(boardSeq=${board.boardSeq}, searchItem=${searchItem}, searchWord=${searchWord})}" th:text="${board.boardTitle}">공부를 잘해</a>
-                             <!-- 첨부파일이 있으면 -->
-                            <th:block th:if="${board.originalFileName != null}">
-                                <img th:src="@{/images/attachment.png}" style="width : 17px;">
-                            </th:block>
-                     	</td>
+                        <td >
+                       		<a th:href="@{/board/boardDetail(boardSeq=${board.boardSeq}, searchItem=${searchItem}, searchWord=${searchWord})}" th:text="${board.boardTitle}"></a>
+                       		
+                       		<!-- 첨부파일이 있으면 클립표시 -->
+                       		<th:block th:if="${board.originalFileName != null}">
+                       			<i class="fa-solid fa-paperclip" style="color:red;"></i>
+                       		</th:block>
+                        </td>
                         <td th:text="${board.boardWriter}">임꺽정</td>
                         <td th:text="${board.hitCount}">5</td>
                         <td th:text="${#temporals.format(board.createDate, 'yyyy-MM-dd HH:mm' )}">2024-12-30</td>

@@ -13,22 +13,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import net.scit.carsharing.entity.UserEntity;
+import net.scit.carsharing.entity.SharingUserEntity;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @ToString
 @Builder
 public class LoginUserDetails implements UserDetails {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String userId;
-	private String userPw;
+	private String userPwd;
 	private String userNm;
 	private String roles;
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return List.of(new SimpleGrantedAuthority(roles));
@@ -36,21 +36,27 @@ public class LoginUserDetails implements UserDetails {
 
 	@Override
 	public String getPassword() {
-		return this.userPw;
+		return this.userPwd;
 	}
 
 	@Override
 	public String getUsername() {
+
 		return this.userId;
 	}
 
-	public static LoginUserDetails toDTO(UserEntity entity)
-	{
+	// 사용자 정의 getter(뷰단에서 써볼라고!!)
+	public String getUserNm() {
+		return this.userNm;
+	}
+
+	// entity --> LoginUserDetails
+	public static LoginUserDetails toDTO(SharingUserEntity userEntity) {
 		return LoginUserDetails.builder()
-							 .userId(entity.getUserId())
-							 .userPw(entity.getUserPw())
-							 .userNm(entity.getUserNm())
-							 .roles(entity.getRoles())
-							 .build();
+				.userId(userEntity.getUserId())
+				.userPwd(userEntity.getUserPwd())
+				.userNm(userEntity.getUserNm())
+				.roles(userEntity.getRoles())
+				.build();
 	}
 }

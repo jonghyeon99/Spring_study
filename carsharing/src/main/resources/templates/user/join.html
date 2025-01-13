@@ -1,35 +1,118 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
-    <script th:src="@{/js/joinScript.js}"></script>
     <title>회원가입</title>
-</head>
-<body>
-    <h2>[ 회원가입 ]</h2>
-    <div>
-        <form th:action="@{/user/joinProc}" method="POST">
-            <label for="userId">ID</label>
-            <input type="text" name="userId" id="userId">
-            <input type="button" id="idDuplCheckBtn" value="ID중복검사">
-            <br><br>
+    <style>
+        label {
+            display: inline-block;
+            width: 185px;
+            height: 35px;
 
-            <label for="userPw">비밀번호</label>
-            <input type="password" name="userPw" id="userPw">
-            <br><br>
+        }
+    </style>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script>
+        let check = false;
+        $(function () {
 
-            <label for="userPwCheck">비밀번호 확인</label>
-            <input type="password" name="userPwCheck" id="userPwCheck">
-            <br><br>
+            $('#duplicate').on('click', duplicate);
+            $('#joinBtn').on('click', joinProc);
+        });
+
+        // 아이디 중복확인
+        function duplicate() {
+            let userId = $('#userId').val();
+            if (userId.trim().length < 3 || userId.trim().length > 10) {
+                alert("ID는 3~10글자 사이로 입력해주세요");
+                $('#userId').select();
+                return;
+            }
+            $.ajax({
+                url: '/user/idCheck'
+                , method: 'POST'
+                , data: { "userId": userId }
+                , success: function (resp) {
+                    if (resp) {
+                        alert("사용할 수 있는 아이디입니다.");
+                        check = true;
+                    } else {
+                        alert("사용할 수 없는 아이디입니다.");
+                        check = false;
+                    }
+                }
+            });
+        }
+
+        function joinProc() {
+            if (!check) {
+                alert("아이디 중복확인하세요!");
+                return;
+            }
+
+            let userId = $('#userId').val();
+            let userPwd = $('#userPwd').val();
+            let userPwd2 = $('#userPwd2').val();
+            let userNm = $('#userNm').val();
+            if (userId.trim().length < 3 || userId.trim().length > 10) {
+                alert("ID는 3~10글자 사이로 입력해주세요");
+                $('#userId').select();
+                return;
+            }
+            if (userPwd.trim().length < 3 || userPwd.trim().length > 10) {
+                alert("비밀번호는 4~12글자 사이로 입력해주세요");
+                $('#userPwd').select();
+                return;
+            }
             
-            <label for="userNm">이름</label>
-            <input type="text" name="userNm" id="userNm">
-			<br>
+            if (userPwd.trim() !== userPwd2.trim()) {
+                alert("비밀번호와 비밀번호 확인은 같은 값으로 입력하세요.");
+                $('#userPwd').val('');
+                $('#userPwd2').val('');
+                
+                $('#userPwd').select();
+                return;
+            }
+            if (userNm.trim().length < 1) {
+                alert("이름을 입력해 주세요");
+                $('#userPwd').select();
+                return;
+            }
+            $('#joinForm').submit();
+        }
+    </script>
+</head>
 
-            <input type="submit" id="joinBtn" value="회원가입">
+<body>
+    <h2>[회원가입]</h2>
+    <div>
+        <form th:action="@{/user/joinProc}" method="POST" id="joinForm">
+            <label for="userId">User ID: </label>
+            <input type="text" name="userId" id="userId">
+            <input type="button" id="duplicate" value="ID 중복검사">
+            <br>
+
+            <label for="userPwd">User Password: </label>
+            <input type="password" name="userPwd" id="userPwd">
+            <br>
+
+            <label for="userPwd2">User Password Check: </label>
+            <input type="password" id="userPwd2">
+            <br>
+
+            <label for="userNm">User Name: </label>
+            <input type="text" name="userNm" id="userNm">
+            <br>
+            <label>
+                <input type="button" id="joinBtn" value="회원가입">
+            </label>
+
         </form>
+
     </div>
+
 </body>
+
 </html>

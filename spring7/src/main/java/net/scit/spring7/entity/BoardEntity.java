@@ -1,17 +1,21 @@
 package net.scit.spring7.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,6 +31,7 @@ import net.scit.spring7.dto.BoardDTO;
 @Getter
 @ToString
 @Builder
+
 @Entity
 @Table(name="board")
 @EntityListeners(AuditingEntityListener.class)  // @LastModifiedDate --> 2)
@@ -53,7 +58,7 @@ public class BoardEntity {
 	private LocalDateTime createDate;
 	
 	@Column(name="update_date")
-	@LastModifiedDate
+	@LastModifiedDate      
 	private LocalDateTime updateDate;
 	
 	@Column(name="original_file_name")
@@ -61,6 +66,9 @@ public class BoardEntity {
 	
 	@Column(name="saved_file_name")
 	private String savedFileName;
+	
+	@OneToMany(mappedBy = "boardEntity", cascade = CascadeType.REMOVE)
+	private List<ReplyEntity> replyEntity = new ArrayList<>();
 	
 	// DTO --> Entity
 	public static BoardEntity toEntity(BoardDTO boardDTO) {

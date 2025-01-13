@@ -9,47 +9,44 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import net.scit.spring7.dto.UserDTO;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-@ToString
 @Builder
 @Entity
-@Table(name = "board_user")
+@Table(name="board_user")
 public class UserEntity {
-	
 	@Id
-	@Column(name = "user_id", nullable = false)
+	@Column(name="user_id")
 	private String userId;
 	
-	@Column(name = "user_pwd", nullable = false)
+	@Column(name="user_pwd", nullable=false)
 	private String userPwd;
 	
-	@Column(name = "user_name", nullable = false)
+	@Column(name="user_name", nullable=false)
 	private String userName;
 	
-	@Column(name = "email")
+	@Column(name="email")
 	private String email;
 	
-	@Column(name = "roles")
+	@Column(name="roles")
 	@Builder.Default
 	private String roles = "ROLE_USER";
 	
-	@Column(name = "enabled")
+	@Column(name="enabled")
 	@Builder.Default
 	private Boolean enabled = true;
 	
-	public static UserEntity toEntity (UserDTO userDTO) {
+	public static UserEntity toEntity(UserDTO userDTO) {
 		return UserEntity.builder()
 				.userId(userDTO.getUserId())
 				.userPwd(userDTO.getUserPwd())
 				.userName(userDTO.getUserName())
 				.email(userDTO.getEmail())
-//				.roles(userDTO.getRoles())		// 사용자가 자신의 Role, enabled를 결정하는 것이 아니다.
+//				.roles(userDTO.getRoles())       // 사용자가 자신의 Role, enabled를 결정하는 것이 아님
 //				.enabled(userDTO.getEnabled())
 				.build();
 	}

@@ -1,28 +1,61 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차량 목록</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 185px;
+            height: 35px;
+
+        }
+    </style>
     <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
-    <script th:src="@{/js/carScript.js}"></script>
-    <title>차량목록</title>
+    <script>
+ 		$(function(){
+ 			$(".reservation").on('click', reservation) 
+ 		});
+ 		function reservation() {
+ 			let carSeq = $(this).attr('data-carSeq');
+ 			let answer = confirm("예약하시겠습니까?");
+ 			
+ 			if(!answer) {
+ 				alert("예약이 취소되었습니다.");
+ 				return;
+ 			} else {
+ 				location.href = `/order/reservation?carSeq=${carSeq}&carStatus=0`;
+ 				alert("예약이 완료되었습니다.");
+ 			}	
+ 		}
+    </script>
 </head>
+
 <body>
-    <h3>[ 차량목록 ]</h3>
+    <h2>[ 차량 목록]</h2>
     <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>차종</th>
-                    <th>상태</th>
-                </tr>
-            </thead>
-			<tbody id="cars">
-			</tbody>
-		</table>
+ 		<table>
+ 			<tr>
+ 				<th>번호</th>
+ 				<th>차종</th>
+ 				<th>상태</th>
+ 			</tr>
+ 			<tr th:each="car, status : ${list}">
+ 				<td th:text="${status.count}"></td>
+ 				<td th:text="${car.carType}"></td>
+ 				<td>
+ 					<input type="button" class="reservation" th:data-carSeq="${car.carSeq}" th:value="예약가능" th:disabled="not ${car.carStatus}">
+ 				</td>
+
+ 			</tr>
+ 		</table>
     </div>
     <br>
-    <a th:href="@{/car/myReservation}">내 예약/반납 정보</a>
+    <!-- 내 예약 반납정보 -->
+    <a th:href="@{/order/myreserveinfo}">내 예약 / 반납정보</a>
+
 </body>
+
 </html>

@@ -15,12 +15,13 @@ import net.scit.spring7.dto.UserDTO;
 import net.scit.spring7.service.UserService;
 
 @Controller
-@Slf4j
-@RequiredArgsConstructor
 @RequestMapping("/user")
+@RequiredArgsConstructor
+@Slf4j
 public class UserController {
-	
+
 	private final UserService userService;
+	
 	/**
 	 * 회원가입 화면 요청
 	 * @return
@@ -31,20 +32,29 @@ public class UserController {
 		return "/user/join";
 	}
 	
-	/*
+	/** 
 	 * 아이디 중복확인 체크
+	 * @param userId
+	 * @return
 	 */
-	@PostMapping("/idCheck")
+	@PostMapping("/idCheck") 
 	@ResponseBody
-	public boolean idCheck(@RequestParam(name = "userId") String userId) {
+	public boolean idCheck(@RequestParam(name="userId") String userId) {
 		boolean result = userService.existId(userId);
+				
 		return result;
 	}
 	
+	/**
+	 * 회원 가입 처리
+	 * @param userDTO
+	 * @return
+	 */
 	@PostMapping("/joinProc")
 	public String joinProc(@ModelAttribute UserDTO userDTO) {
-		log.info("회원정보 : {}", userDTO.toString());
+		log.info("회원 정보: {} ", userDTO.toString());
 		boolean result = userService.joinProc(userDTO);
+		
 		return "redirect:/";
 	}
 	
@@ -55,12 +65,14 @@ public class UserController {
 	 * @return
 	 */
 	@GetMapping("/login")
-	public String login(@RequestParam(name = "error", required = false) String error
+	public String login(
+			@RequestParam(name="error", required = false) String error
 			, Model model
 			) {
 		
 		model.addAttribute("error", error);
 		model.addAttribute("errMessage", "아이디나 비밀번호가 틀렸습니다.");
+		
 		return "/user/login";
 	}
 }

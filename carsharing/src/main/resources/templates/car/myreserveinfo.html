@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 예약 정보</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 185px;
+            height: 35px;
+
+        }
+    </style>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script>
+ 		$(function(){
+ 			$(".carReturn").on('click', carReturn);
+ 		});
+		function carReturn() {
+			let carSeq = $(this).attr('data-carSeq');
+			let orderSeq = $(this).attr('data-orderSeq');
+			location.href = `/order/carReturn?carSeq=${carSeq}&orderSeq=${orderSeq}`;
+		}
+ 			
+    </script>
+</head>
+
+<body>
+    <h2>[ 내 예약 반납정보 ]</h2>
+    <div>
+ 		<table border="1">
+ 			<tr>
+ 				<th>차량 번호</th>
+ 				<th>차종</th>
+ 				<th>예약일자</th>
+ 				<th>반납여부</th>
+ 			</tr>
+ 			<tr th:each="myreserve : ${list}">
+ 				<td th:text="${myreserve.carSeq}"></td>
+ 				<td th:text="${myreserve.carType}"></td>
+ 				<td th:text="${myreserve.sharingDate}"></td>
+ 				<td>
+ 					<span th:if="${myreserve.sharingStatus} == 0">
+ 						예약중
+ 						<input type="button" value="반납" class="carReturn" th:data-carSeq="${myreserve.carSeq}" th:data-orderSeq="${myreserve.orderSeq}">
+ 					</span>
+ 					<span th:unless="${myreserve.sharingStatus} == 0">
+ 						반납완료
+ 					</span>
+ 				</td>
+
+ 			</tr>
+ 		</table>
+    </div>
+    <br>
+    <!-- 내 예약 반납정보 -->
+    <a th:href="@{/car/carlist}">차량 목록 페이지로 이동</a>
+
+</body>
+
+</html>

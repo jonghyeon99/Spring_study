@@ -1,5 +1,9 @@
 package net.scit.spring7.dto;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,14 +12,13 @@ import lombok.Setter;
 import lombok.ToString;
 import net.scit.spring7.entity.UserEntity;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @ToString
 @Builder
 public class UserDTO {
-	
 	private String userId;
 	private String userPwd;
 	private String userName;
@@ -23,14 +26,14 @@ public class UserDTO {
 	private String roles;
 	private Boolean enabled;
 	
-	public static UserDTO toDTO (UserEntity userEntity) {
+	public static UserDTO toDTO(UserEntity entity) {
 		return UserDTO.builder()
-				.userId(userEntity.getUserId())
-				.userPwd(userEntity.getUserPwd())
-				.userName(userEntity.getUserName())
-				.email(userEntity.getEmail())
-				.roles(userEntity.getRoles())
-				.enabled(userEntity.getEnabled())
+				.userId(entity.getUserId())
+				.userPwd(entity.getUserPwd())
+				.userName(entity.getUserName())
+				.email(entity.getEmail())
+				.roles(entity.getRoles())
+				.enabled(entity.getEnabled())
 				.build();
 	}
 }
