@@ -4,9 +4,11 @@ import java.io.FileInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -23,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.scit.spring7.dto.BoardDTO;
 import net.scit.spring7.service.BoardService;
+import net.scit.spring7.util.PageNavigator;
 
 @Controller
 @RequestMapping("/board")
@@ -35,6 +38,8 @@ public class BoardController {
 	@Value("${spring.servlet.multipart.location}")
 	private String uploadPath;
 	
+	@Value("${user.board.pageLimit}")
+	private int pageLimit;
 	/**
 	 * 1) 단순조회: 게시글 전체 조회
 	 * 2) 검색조회: 게시글의 특정 조건에 맞춘 조회
@@ -42,17 +47,28 @@ public class BoardController {
 	 */
 	@GetMapping("/boardList")
 	public String boardList(
-			@RequestParam(name="searchItem", defaultValue="boardTitle") String searchItem
+			@PageableDefault(page=1) Pageable pageable
+			, @RequestParam(name="searchItem", defaultValue="boardTitle") String searchItem
 			, @RequestParam(name="searchWord", defaultValue = "") String searchWord
 			, Model model) {
 		
+		// 2) 검색 기능 + 페이징 기능
+		Page<BoardDTO> list = boardService.selectAll(pageable, searchItem, searchWord);
+		
+		int totalPages = list.getTotalPages();		// DB가 계산해준 총 페이지 수
+		int page = pageable.getPageNumber();		// 현재 사용자가 요청한 페이지
+		
+		PageNavigator navi = new PageNavigator(pageLimit, page, totalPages);
+		// 1) 검색 기능 추가
 		// searchItem과 searchWord는 null인 상태로 servie로 전달되면 안됨
 		// selectAll을 수정
-		List<BoardDTO> list = boardService.selectAll(searchItem, searchWord);
+		// List<BoardDTO> list = boardService.selectAll(searchItem, searchWord);
 		
+
 		model.addAttribute("list", list);
 		model.addAttribute("searchItem", searchItem);
 		model.addAttribute("searchWord", searchWord);
+		model.addAttribute("navi", navi);
 		
 		return "/board/boardList";
 	}

@@ -52,11 +52,11 @@
 
         <!-- 실제 게시글이 출력되는 부분 -->
         <div class="head">
-            <th:block th:if="${list.size()} == 0">
+            <th:block th:if="${list.isEmpty()}">
                 <p style="text-align:center;">게시글이 없습니다.</p>
             </th:block>
 
-            <th:block th:if="${list.size()} != 0">
+            <th:block th:if="${not list.isEmpty()}">
                 <table border="1">
                     <tr>
                         <th class="no">번호</th>
