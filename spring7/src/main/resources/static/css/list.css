@@ -75,4 +75,22 @@ nav.pagination {
     width: 1000px;
     margin: 20px auto;
     text-align: center;
+    display: flex;
+    align-content : center;
+    justify-content : center;
+    align-items : center;
+}
+
+.page-no {
+	display : inline-block;
+	width: 20px;
+	height: 30px;
+	padding : 0.4rem;
+	margin: 0 2px;
+	font-size : 1.2rem;
+}
+
+.current {
+	color : red;
+	font-weight : bold;
 }

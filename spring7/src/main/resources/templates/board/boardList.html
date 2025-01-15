@@ -14,6 +14,9 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/def97ee41b.js" crossorigin="anonymous"></script>
 
+	<!-- jQuery import -->
+	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script defer th:src="@{/js/paging.js}"></script>
 </head>
 
 <body>
@@ -32,12 +35,13 @@
         <div class="top">
             <!-- 전체 글 개수 -->
             <div class="count">
-                <p>게시글 개수: 0개</p>
+                <p>게시글 개수: <span th:text="${list.getTotalElements()}"></span>개</p>
             </div>
 
             <!-- 검색 창 -->
             <div class="search">
-                <form th:action="@{/board/boardList}" method="GET">
+                <form th:action="@{/board/boardList}" method="GET" id="searchForm">
+                	<input type="hidden" name="page" value="" id="requestPage">
                     <select name="searchItem" id="searchItem">
                         <option value="boardTitle"   th:selected="${searchItem == 'boardTitle'}">  글제목</option>
                         <option value="boardWriter"  th:selected="${searchItem == 'boardWriter'}"> 작성자</option>
@@ -68,7 +72,7 @@
 
                     <!-- 실제 글내용 (반복 구간)-->
                     <tr th:each="board, status : ${list}">
-                        <td th:text="${status.count}">1</td>
+                        <td th:text="${status.count + list.getNumber() * 10}">1</td>
                         <td >
                        		<a th:href="@{/board/boardDetail(boardSeq=${board.boardSeq}, searchItem=${searchItem}, searchWord=${searchWord})}" th:text="${board.boardTitle}"></a>
                        		
@@ -96,10 +100,40 @@
 
     <!-- 페이지 네비게이션 -->
     <nav class="pagination">
-        &laquo;
-        &lsaquo;
-        1 2 3 4 5 6 7 8 9 10
-        &rsaquo;
+        <!-- 앞 그룹 -->
+        &laquo;&nbsp;
+        
+        <!-- 앞 페이지 -->
+        <th:block th:if="${navi.page} == 1">
+        	<span>&lsaquo;</span>
+        </th:block>
+        <th:block th:if="${navi.page} != 1">
+        	<a th:href="|javascript:pageFormSubmit(${navi.page} - 1)|">&lsaquo;</a>
+        </th:block>
+        &nbsp;
+        
+        <!-- 페이지 반복구간 -->
+        <span th:each="count : ${#numbers.sequence(navi.startPageGroup, navi.endPageGroup)}">
+        	<!-- 현재 페이지가 아닌 페이지 -->
+        	<th:block th:if="${count != navi.page}">
+        		<a th:href="|javascript:pageFormSubmit(${count})|" th:text="${count}" class="page-no"></a>&nbsp;
+        	</th:block>
+        	<!-- 요청한 페이지 -->
+        	<th:block th:if="${count == navi.page}">
+        		<span th:text="${count}" class="page-no current"></span>&nbsp;
+        	</th:block>
+        </span>&nbsp;&nbsp;
+        
+        <!-- 뒷 페이지 -->
+        <th:block th:if="${navi.page} == ${navi.totalPages}">
+        	<span>&rsaquo;</span>
+        </th:block>
+        <th:block th:if="${navi.page} != ${navi.totalPages}">
+        	<a th:href="|javascript:pageFormSubmit(${navi.page} + 1)|">&rsaquo;</a>
+        </th:block>&nbsp;
+        	
+        
+        <!-- 뒷 그룹 -->
         &raquo;
     </nav>
 
