@@ -20,7 +20,8 @@
 </head>
 
 <body>
-    <!-- 로고 -->
+	<div class="container" th:replace="fragment/header(title='회원 전용 게시판')"></div>
+    <!-- 로고 
     <div class="container">
         <div class="logo">
             <a href="../index.html" th:href="@{/}">
@@ -28,7 +29,7 @@
             </a>
         </div>
         <h2>회원 전용 게시판</h2>
-    </div>
+    </div> -->
 
     <!-- 게시글 전체 목록 출력 -->
     <div class="content">
@@ -75,7 +76,9 @@
                         <td th:text="${status.count + list.getNumber() * 10}">1</td>
                         <td >
                        		<a th:href="@{/board/boardDetail(boardSeq=${board.boardSeq}, searchItem=${searchItem}, searchWord=${searchWord})}" th:text="${board.boardTitle}"></a>
-                       		
+                       		<th:block th:if="${board.replyCount != 0}">
+                       			<span style="color:darkred; font-weight:bold;">([[${board.replyCount}]])</span>
+                       		</th:block>
                        		<!-- 첨부파일이 있으면 클립표시 -->
                        		<th:block th:if="${board.originalFileName != null}">
                        			<i class="fa-solid fa-paperclip" style="color:red;"></i>
@@ -101,7 +104,15 @@
     <!-- 페이지 네비게이션 -->
     <nav class="pagination">
         <!-- 앞 그룹 -->
-        &laquo;&nbsp;
+        <th:block th:if="${navi.currentGroup} == 1">
+        	<span>&laquo;</span>
+        </th:block>
+        <th:block th:if="${navi.currentGroup} != 1">
+    		<a th:href="|javascript:pageFormSubmit(${navi.startPageGroup} - 1)|">
+        		&laquo;
+    		</a>
+		</th:block>
+        &nbsp;
         
         <!-- 앞 페이지 -->
         <th:block th:if="${navi.page} == 1">
@@ -134,10 +145,14 @@
         	
         
         <!-- 뒷 그룹 -->
-        &raquo;
+        <th:block th:if="${navi.currentGroup} == ${navi.totalGroupCount}">
+        	<span>&raquo;</span>
+        </th:block>
+        <th:block th:if="${navi.currentGroup} != ${navi.totalGroupCount}">
+    		<a th:href="|javascript:pageFormSubmit(${navi.endPageGroup} + 1)|">
+        		&raquo;
+    		</a>
+		</th:block>
     </nav>
-
-
 </body>
-
 </html>

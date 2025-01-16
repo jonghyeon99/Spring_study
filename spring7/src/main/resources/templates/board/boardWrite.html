@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <!-- 로고 -->
-    <div class="container">
+	<div class="container" th:replace="fragment/header(title='회원 전용 게시판')"></div>
+    <!-- 로고 tainer">
         <div class="logo">
             <a href="../index.html" th:href="@{/}">
                 <img src="../../static/images/logo.png" th:src="@{/images/logo.png}" alt="로고">
@@ -22,7 +22,9 @@
         </div>
         <h2>게시판 글쓰기</h2>
     </div>
-
+	-->
+	
+    <div class="con
     <!-- 게시글 쓰기 화면 -->
     <div class="content">
         <form th:action="@{/board/boardWrite}" method="POST" enctype="multipart/form-data">

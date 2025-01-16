@@ -32,7 +32,8 @@
 </head>
 
 <body>
-    <!-- 로고 -->
+	<div class="container" th:replace="fragment/header(title='회원 전용 게시판')"></div>
+    <!-- 로고 
     <div class="container">
         <div class="logo">
             <a href="../index.html" th:href="@{/}">
@@ -41,7 +42,8 @@
         </div>
         <h2>게시판 글보기</h2>
     </div>
-
+	-->
+	
     <!-- 게시글 자세히 화면 -->
     <div class="content">
     	<input type="hidden" th:value="${board.boardSeq}" id="boardSeq">

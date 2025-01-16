@@ -111,3 +111,20 @@ td {
     text-align: center;
     padding: 10px;
 }
+
+/******************************
+		Fragment(로그인 처리)
+/******************************/
+div#user {
+	position: absolute;
+	width: 1000px;
+	left: 0;
+	right: 0;
+	top: 10px;
+	margin : 10px auto;
+	text-align: right;
+}
+
+div#user ul, div#user li {
+	padding : 0px;
+}

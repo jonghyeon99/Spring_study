@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Formula;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -69,6 +70,9 @@ public class BoardEntity {
 	
 	@OneToMany(mappedBy = "boardEntity", cascade = CascadeType.REMOVE)
 	private List<ReplyEntity> replyEntity = new ArrayList<>();
+	
+	@Formula("(SELECT count(1) FROM reply r WHERE board_seq = r.board_seq)")
+	private int replyCount;
 	
 	// DTO --> Entity
 	public static BoardEntity toEntity(BoardDTO boardDTO) {

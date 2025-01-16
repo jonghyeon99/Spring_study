@@ -34,6 +34,8 @@ public class BoardDTO {
 	// 업로드 파일이 있을 경우 View에서 사용하기 위해 
 	private String originalFileName;
 	private String savedFileName;
+	// 댓글 개수(BoardEntity에서 @Formula를 이용해서 조회
+	private int replyCount;
 	
 	// Entity --> DTO
 	public static BoardDTO toDTO(BoardEntity boardEntity) {
@@ -47,6 +49,7 @@ public class BoardDTO {
 				.updateDate(boardEntity.getUpdateDate())
 				.originalFileName(boardEntity.getOriginalFileName())
 				.savedFileName(boardEntity.getSavedFileName())
+				.replyCount(boardEntity.getReplyCount())
 				.build();
 	}
 }

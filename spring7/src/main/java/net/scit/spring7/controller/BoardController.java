@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -24,6 +25,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.scit.spring7.dto.BoardDTO;
+import net.scit.spring7.dto.LoginUserDetails;
 import net.scit.spring7.service.BoardService;
 import net.scit.spring7.util.PageNavigator;
 
@@ -47,7 +49,8 @@ public class BoardController {
 	 */
 	@GetMapping("/boardList")
 	public String boardList(
-			@PageableDefault(page=1) Pageable pageable
+			@AuthenticationPrincipal LoginUserDetails loginUser
+			, @PageableDefault(page=1) Pageable pageable
 			, @RequestParam(name="searchItem", defaultValue="boardTitle") String searchItem
 			, @RequestParam(name="searchWord", defaultValue = "") String searchWord
 			, Model model) {
@@ -70,6 +73,10 @@ public class BoardController {
 		model.addAttribute("searchWord", searchWord);
 		model.addAttribute("navi", navi);
 		
+		if (loginUser != null) {
+			model.addAttribute("loginName", loginUser.getUserName());
+		}
+		
 		return "/board/boardList";
 	}
 	
@@ -78,7 +85,10 @@ public class BoardController {
 	 * @return
 	 */
 	@GetMapping("/boardWrite")
-	public String boardWrite() {
+	public String boardWrite(@AuthenticationPrincipal LoginUserDetails loginUser, Model model) {
+		if (loginUser != null) {
+			model.addAttribute("loginName", loginUser.getUserName());
+		}
 		return "/board/boardWrite";
 	}
 	
@@ -99,7 +109,8 @@ public class BoardController {
 	 */
 	@GetMapping("/boardDetail")
 	public String boardDetail(
-			@RequestParam(name="boardSeq") Long boardSeq
+			@AuthenticationPrincipal LoginUserDetails loginUser
+			, @RequestParam(name="boardSeq") Long boardSeq
 			, @RequestParam(name="searchItem", defaultValue="boardTitle") String searchItem
 			, @RequestParam(name="searchWord", defaultValue = "") String searchWord
 			, Model model) {
@@ -112,6 +123,10 @@ public class BoardController {
 		model.addAttribute("board", board);
 		model.addAttribute("searchItem", searchItem);
 		model.addAttribute("searchWord", searchWord);
+		
+		if (loginUser != null) {
+			model.addAttribute("loginName", loginUser.getUserName());
+		}
 		
 		return "/board/boardDetail";
 	}
@@ -144,7 +159,8 @@ public class BoardController {
 	 */
 	@GetMapping("/boardUpdate")
 	public String boardUpdate(
-			@RequestParam(name="boardSeq") Long boardSeq
+			@AuthenticationPrincipal LoginUserDetails loginUser
+			, @RequestParam(name="boardSeq") Long boardSeq
 			, @RequestParam(name="searchItem", defaultValue="boardTitle") String searchItem
 			, @RequestParam(name="searchWord", defaultValue = "") String searchWord
 			, Model model) {
@@ -154,6 +170,10 @@ public class BoardController {
 		model.addAttribute("board", board);
 		model.addAttribute("searchItem", searchItem);
 		model.addAttribute("searchWord", searchWord);
+		
+		if (loginUser != null) {
+			model.addAttribute("loginName", loginUser.getUserName());
+		}
 		
 		return "/board/boardUpdate";
 	}
